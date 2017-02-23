@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">АГП-ЕАМ</string>
+    <string name="login_please_login">Не в</string>
+
+
+    <!--功能项-->
+    <string name="task_text">Списки задач</string>
+    <string name="asset_text">Активы запрос</string>
+    <string name="job_text">Заявление о приеме на работу</string>
+    <string name="workorder_text">Рабочий одной управления</string>
+    <string name="inventory_text">Управление запасами</string>
+    <string name="po_text">Управление закупками</string>
+
+    <!--Login_activity-->
+    <string name="please_userid">Введите имя пользователя</string>
+    <string name="please_password">Пожалуйста, введите пароль</string>
+    <string name="remenber_pass">Вспомнить пароль</string>
+    <string name="login"> посадка </string>
+    <string name="version_text"> номер версии  : </string>
+
+    <!-- 登录界面 key-->
+    <string name="logined_member_username">logined_member_username</string>
+    <string name="logined_member_password">logined_member_password</string>
+    <string name="logined_member_ischeck">logined_member_ischeck</string>
+    <string name="logined_user_isoffline">logined_user_isoffline</string>
+    <string name="login_insertOrg">login_insertOrg</string>
+    <string name="login_insertSite">login_insertSite</string>
+    <string name="login_personId">login_personId</string>
+    <string name="login_userName">login_userName</string>
+    <string name="login_displayName">login_displayName</string>
+    <string name="login_department">login_department</string>
+    <string name="ip_address">ip_address</string>
+
+
+    <string name="can_not_find_version_name">Не удалось получить  номер версии</string>
+    <string name="login_error_empty_user">Имя пользователя  не может быть пустым</string>
+    <string name="login_error_empty_passwd">Пароль не может быть пустым</string>
+    <string name="login_loging">Пожалуйста,  посадка  в  позже  ...</string>
+</resources>

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">AGP-EAM</string>
+
+    <string name="login_please_login">Not logged in</string>
+
+    <!--功能项-->
+    <string name="task_text">Todo Tasks</string>
+    <string name="asset_text">Asset Query</string>
+    <string name="job_text">Job Application</string>
+    <string name="workorder_text">Work Order Management</string>
+    <string name="inventory_text">Inventory Management</string>
+    <string name="po_text">Procurement Management</string>
+
+    <!--Login_activity-->
+    <string name="please_userid">Please enter your user name</string>
+    <string name="please_password">Please enter the password</string>
+    <string name="remenber_pass">Remember the password</string>
+    <string name="login">The login</string>
+    <string name="version_text">The version number:</string>
+
+    <!-- 登录界面 key-->
+    <string name="logined_member_username">logined_member_username</string>
+    <string name="logined_member_password">logined_member_password</string>
+    <string name="logined_member_ischeck">logined_member_ischeck</string>
+    <string name="logined_user_isoffline">logined_user_isoffline</string>
+    <string name="login_insertOrg">login_insertOrg</string>
+    <string name="login_insertSite">login_insertSite</string>
+    <string name="login_personId">login_personId</string>
+    <string name="login_userName">login_userName</string>
+    <string name="login_displayName">login_displayName</string>
+    <string name="login_department">login_department</string>
+    <string name="ip_address">ip_address</string>
+
+
+    <string name="can_not_find_version_name">Unable to get version number</string>
+    <string name="login_error_empty_user">User name cannot be empty</string>
+    <string name="login_error_empty_passwd">Password cannot be empty</string>
+    <string name="login_loging">Please log in later...</string>
+
+</resources>
