@@ -689,7 +689,7 @@ public class HttpManager {
     public static void loginWithUsername(final Context cxt, final String username, final String password, String imei,
                                          final HttpRequestHandler<String> handler) {
 
-        String ip_adress = AccountUtils.getIpAddress(cxt) + Constants.SIGN_IN_URL;
+        String ip_adress = Constants.HTTP_API_IP + Constants.SIGN_IN_URL;
 
         Log.i(TAG,"ip_adress="+ip_adress);
         AsyncHttpClient client = new AsyncHttpClient();

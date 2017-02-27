@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:background="@drawable/bg_common_toast" >
 
-    <com.zcl.hxqh.liangqingmanagement.view.widght.FlippingImageView
+    <com.hsk.hxqh.agp_eam.ui.widget.FlippingImageView
         android:id="@+id/loadingdialog_fiv_icon"
         android:layout_width="30dip"
         android:layout_height="30dip"

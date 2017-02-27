@@ -133,7 +133,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     public void onSuccess(String data) {
 
                         MessageUtils.showMiddleToast(LoginActivity.this, "登录成功");
-//                        mProgressDialog.dismiss();
+                        mLoadingDialog.dismiss();
 //                        AccountUtils.setIpAddress(LoginActivity.this,adress);
                         if (isRemember) {
                             AccountUtils.setChecked(LoginActivity.this, true);
@@ -164,7 +164,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void onFailure(String error) {
                         MessageUtils.showErrorMessage(LoginActivity.this, error);
-//                        mProgressDialog.dismiss();
+                        mLoadingDialog.dismiss();
                     }
                 });
     }
