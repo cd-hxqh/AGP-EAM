@@ -7,14 +7,13 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 
 import com.hsk.hxqh.agp_eam.R;
 import com.hsk.hxqh.agp_eam.unit.ScreenUtils;
 
 /**侧滑栏**/
-public class SlidingMenu extends HorizontalScrollView
+public class SlidingMenu extends CustomHorizontalScrollView
 {
 
 	private static final String TAG="SlidingMenu";

@@ -36,4 +36,23 @@
     <string name="login_error_empty_user">Имя пользователя  не может быть пустым</string>
     <string name="login_error_empty_passwd">Пароль не может быть пустым</string>
     <string name="login_loging">Пожалуйста,  посадка  в  позже  ...</string>
+
+
+    <!--获取信息提示-->
+    <string name="item_num_title">номер:</string>
+    <string name="item_desc_title">описание:</string>
+
+    <!-- hint -->
+    <string name="hint_item_num_title">Нет  , номер</string>
+    <string name="hint_item_desc_title">Нет  описания</string>
+    <string name="hint_item_date_title">Нет  даты</string>
+    <string name="get_data_info_fail">Доступ к информации  не</string>
+    <!--登录信息提示-->
+    <string name="login_successful_hint">приземлился успешно</string>
+
+    <!--权限设置-->
+    <string name="settings"> Настройки </string>
+    <string name="help"> помочь </string>
+    <string name="string_help_text">В настоящее время  отсутствуют необходимые  разрешения на  применение  .  \n\n  нажмите  "настройки  "  \  \  \  "  -\  разрешения  "  -  открыть  необходимые разрешения  .  Наконец,  нажмите  кнопку назад  \n\n  дважды  ,  могут  вернуться  .</string>
+    <string name="quit">выход</string>
 </resources>

@@ -12,9 +12,6 @@ public class Constants {
      * 默认*
      */
     public static final String HTTP_API_IP = "http://182.92.8.94:7011";
-//    public static final String HTTP_API_URL = "http://121.35.242.172:7001/maximo/mobile/";
-//
-//    public static final String HTTPS_API_URL = "http://121.35.242.172:7001/meaweb/services";
 
 
 

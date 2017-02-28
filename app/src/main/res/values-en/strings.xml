@@ -37,4 +37,25 @@
     <string name="login_error_empty_passwd">Password cannot be empty</string>
     <string name="login_loging">Please log in later...</string>
 
+    <!--获取信息提示-->
+    <string name="item_num_title">Number:</string>
+    <string name="item_desc_title">Description:</string>
+
+    <!-- hint -->
+    <string name="hint_item_num_title">No numbering</string>
+    <string name="hint_item_desc_title">No description</string>
+    <string name="hint_item_date_title">No date</string>
+    <string name="get_data_info_fail">Getting information failure</string>
+    <!--登录信息提示-->
+    <string name="login_successful_hint">Landing success</string>
+
+
+
+
+    <!--权限设置-->
+    <string name="settings">Setting</string>
+    <string name="help">Help</string>
+    <string name="string_help_text">Current application lacks the necessary permissions. Please click on the "\n\n" permission set -\ \ "\" - open the required permissions. \n\n finally hit the two back button, you can return.</string>
+    <string name="quit">Sign out</string>
+
 </resources>

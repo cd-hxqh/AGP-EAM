@@ -35,4 +35,10 @@
     <string name="login_error_empty_user">用户名不能为空</string>
     <string name="login_error_empty_passwd">密码不能为空</string>
     <string name="login_loging">正在登陆中请稍后...</string>
+
+    <!--权限设置-->
+    <string name="settings">设置</string>
+    <string name="help">帮助</string>
+    <string name="string_help_text">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。\n\n最后点击两次后退按钮，即可返回。</string>
+    <string name="quit">退出</string>
 </resources>

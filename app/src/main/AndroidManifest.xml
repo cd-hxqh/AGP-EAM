@@ -48,6 +48,10 @@
             android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.PermissionsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
     </application>
 
 </manifest>
