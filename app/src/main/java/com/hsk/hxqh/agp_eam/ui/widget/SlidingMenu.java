@@ -16,6 +16,7 @@ import com.hsk.hxqh.agp_eam.unit.ScreenUtils;
 public class SlidingMenu extends CustomHorizontalScrollView
 {
 
+
 	private static final String TAG="SlidingMenu";
 	/**
 	 * 屏幕宽度
