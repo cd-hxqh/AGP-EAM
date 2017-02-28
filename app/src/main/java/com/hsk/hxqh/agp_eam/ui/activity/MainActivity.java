@@ -2,18 +2,16 @@ package com.hsk.hxqh.agp_eam.ui.activity;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hsk.hxqh.agp_eam.R;
 import com.hsk.hxqh.agp_eam.ui.fragment.AssetFragment;
 import com.hsk.hxqh.agp_eam.ui.widget.SlidingMenu;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private SlidingMenu mMenu;
     private TextView menutitle;
@@ -32,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
-    private void findViewById(){
+    protected void findViewById(){
         mMenu = (SlidingMenu) findViewById(R.id.id_menu);
         menutitle = (TextView) findViewById(R.id.menu_title);
         AssetLayout = (RelativeLayout) findViewById(R.id.asset_layout);
     }
 
-    private void initView(){
+    protected void initView(){
         AssetLayout.setOnClickListener(new layoutClickListener(2));
     }
 

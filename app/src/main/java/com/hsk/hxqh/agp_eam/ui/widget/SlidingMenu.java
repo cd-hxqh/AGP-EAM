@@ -3,7 +3,6 @@ package com.hsk.hxqh.agp_eam.ui.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
@@ -55,13 +54,13 @@ public class SlidingMenu extends CustomHorizontalScrollView
 			int attr = a.getIndex(i);
 			switch (attr)
 			{
-			case R.styleable.SlidingMenu_rightPadding:
-				// 默认50
-				mMenuRightPadding = a.getDimensionPixelSize(attr,
-						(int) TypedValue.applyDimension(
-								TypedValue.COMPLEX_UNIT_DIP, 50f,
-								getResources().getDisplayMetrics()));// 默认为10DP
-				break;
+				case R.styleable.SlidingMenu_rightPadding:
+					// 默认50
+					mMenuRightPadding = a.getDimensionPixelSize(attr,
+							(int) TypedValue.applyDimension(
+									TypedValue.COMPLEX_UNIT_DIP, 50f,
+									getResources().getDisplayMetrics()));// 默认为10DP
+					break;
 			}
 		}
 		a.recycle();
@@ -75,23 +74,34 @@ public class SlidingMenu extends CustomHorizontalScrollView
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
 	{
-		/**
-		 * 显示的设置一个宽度
-		 */
+//		/**
+//		 * 显示的设置一个宽度
+//		 */
+//		if (!once)
+//		{
+//			LinearLayout wrapper = (LinearLayout) getChildAt(0);
+//			ViewGroup menu = (ViewGroup) wrapper.getChildAt(0);
+//			ViewGroup content = (ViewGroup) wrapper.getChildAt(1);
+//			mMenuWidth = mScreenWidth - mMenuRightPadding;
+//			mHalfMenuWidth = mMenuWidth / 2;
+//			menu.getLayoutParams().width = mMenuWidth;
+//			content.getLayoutParams().width = mScreenWidth;
+//
+//		}
+//		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+
 		if (!once)
 		{
-			LinearLayout wrapper = (LinearLayout) getChildAt(0);
-			ViewGroup menu = (ViewGroup) wrapper.getChildAt(0);
-			ViewGroup content = (ViewGroup) wrapper.getChildAt(1);
-			Log.i(TAG,"mScreenWidth="+mScreenWidth+",mMenuRightPadding="+mMenuRightPadding);
-			mMenuWidth = mScreenWidth - mMenuRightPadding;
-			mHalfMenuWidth = mMenuWidth / 2;
-			menu.getLayoutParams().width = mMenuWidth;
-			content.getLayoutParams().width = mScreenWidth;
-
+			LinearLayout mWapper = (LinearLayout) getChildAt(0);
+			ViewGroup mMenu = (ViewGroup) mWapper.getChildAt(0);
+			ViewGroup mContent = (ViewGroup) mWapper.getChildAt(1);
+			mMenuWidth = mMenu.getLayoutParams().width = mScreenWidth
+					- mMenuRightPadding;
+			mContent.getLayoutParams().width = mScreenWidth;
+			once = true;
 		}
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
 	}
 
 	@Override
@@ -112,19 +122,19 @@ public class SlidingMenu extends CustomHorizontalScrollView
 		int action = ev.getAction();
 		switch (action)
 		{
-		// Up时，进行判断，如果显示区域大于菜单宽度一半则完全显示，否则隐藏
-		case MotionEvent.ACTION_UP:
-			int scrollX = getScrollX();
-			if (scrollX > mHalfMenuWidth)
-			{
-				this.smoothScrollTo(mMenuWidth, 0);
-				isOpen = false;
-			} else
-			{
-				this.smoothScrollTo(0, 0);
-				isOpen = true;
-			}
-			return true;
+			// Up时，进行判断，如果显示区域大于菜单宽度一半则完全显示，否则隐藏
+			case MotionEvent.ACTION_UP:
+				int scrollX = getScrollX();
+				if (scrollX > mHalfMenuWidth)
+				{
+					this.smoothScrollTo(mMenuWidth, 0);
+					isOpen = false;
+				} else
+				{
+					this.smoothScrollTo(0, 0);
+					isOpen = true;
+				}
+				return true;
 		}
 		return super.onTouchEvent(ev);
 	}
