@@ -6,9 +6,15 @@ import android.util.Log;
 import com.hsk.hxqh.agp_eam.bean.LoginResults;
 import com.hsk.hxqh.agp_eam.bean.Results;
 import com.hsk.hxqh.agp_eam.config.Constants;
+import com.hsk.hxqh.agp_eam.model.ASSET;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 
 /**
@@ -165,54 +171,54 @@ public class JsonUtils<E> {
 //        return webResult;
 //    }
 //
-//    /**
-//     * 项目台账*
-//     */
-//    public static ArrayList<Udpro> parsingUdpro(Context ctx, String data) {
-//        Log.i(TAG, "udpro data=" + data);
-//        ArrayList<Udpro> list = null;
-//        Udpro udpro = null;
-//        try {
-//            JSONArray jsonArray = new JSONArray(data);
-//            JSONObject jsonObject;
-//            list = new ArrayList<Udpro>();
-//            Log.i(TAG, "jsonArray length=" + jsonArray.length());
-//            for (int i = 0; i < jsonArray.length(); i++) {
-//                udpro = new Udpro();
-//                jsonObject = jsonArray.getJSONObject(i);
-//                Field[] field = udpro.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
-//                for (int j = 0; j < field.length; j++) {     //遍历所有属性
-//                    field[j].setAccessible(true);
-//                    String name = field[j].getName();    //获取属性的名字
-//                    Log.i(TAG, "name=" + name);
-//                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
-//                        try {
-//                            // 调用getter方法获取属性值
-//                            Method getOrSet = udpro.getClass().getMethod("get" + name);
-//                            Object value = getOrSet.invoke(udpro);
-//                            if (value == null) {
-//                                //调用setter方法设属性值
-//                                Class[] parameterTypes = new Class[1];
-//                                parameterTypes[0] = field[j].getType();
-//                                getOrSet = udpro.getClass().getDeclaredMethod("set" + name, parameterTypes);
-//                                getOrSet.invoke(udpro, jsonObject.getString(name));
-//                            }
-//
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//
-//                }
-//                list.add(udpro);
-//            }
-//            return list;
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//
-//    }
+    /**
+     * 项目台账*
+     */
+    public static ArrayList<ASSET> parsingAsset(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<ASSET> list = null;
+        ASSET asset = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<ASSET>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                asset = new ASSET();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = asset.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = asset.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(asset);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = asset.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(asset, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(asset);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
 //
 //    /**
 //     * 解析风机型号信息*

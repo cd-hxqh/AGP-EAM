@@ -196,6 +196,19 @@ public class HttpManager {
     }
 
     /**
+     * 设置资产查询*
+     */
+    public static String getAssetUrl(String search, int curpage, int showcount) {
+        if (search.equals("")) {
+            return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.ASSET_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'}";
+        } else {
+            return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.ASSET_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'"+"'sinorsearch':{'ASSETNUM':' + value + ','DESCRIPTION':' + value + '}}";
+        }
+    }
+
+    /**
      * 设置出差总结报告*
      */
     public static String getTripReportUrl(String search, int curpage, int showcount) {
@@ -761,7 +774,7 @@ public class HttpManager {
      */
     public static void getDataPagingInfo(final Context cxt, String data, final HttpRequestHandler<Results> handler) {
         Log.i(TAG, "data=" + data);
-        String url = AccountUtils.getIpAddress(cxt) + Constants.BASE_URL;
+        String url = Constants.HTTP_API_IP + Constants.BASE_URL;
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.put("data", data);
