@@ -62,6 +62,7 @@
     <string name="item_desc_title">描述:</string>
 
     <!-- hint -->
+    <string name="have_not_data">暂无数据</string>
     <string name="hint_item_num_title">暂无编号</string>
     <string name="hint_item_desc_title">暂无描述</string>
     <string name="hint_item_date_title">暂无日期</string>
@@ -74,4 +75,27 @@
     <string name="help">帮助</string>
     <string name="string_help_text">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。\n\n最后点击两次后退按钮，即可返回。</string>
     <string name="quit">退出</string>
+    
+    <!--资产-->
+    <string name="asset_title">资产详情</string>
+    <string name="asset_assetnum">资产:</string>
+    <string name="asset_desc">资产描述:</string>
+    <string name="asset_udfirstclass">设备大类:</string>
+    <string name="asset_firstdesc">设备大类描述:</string>
+    <string name="asset_udsecondclass">设备中类:</string>
+    <string name="asset_secondesc">设备中类描述:</string>
+    <string name="asset_udthirdclass">设备小类:</string>
+    <string name="asset_thirdesc">设备小类描述:</string>
+    <string name="asset_parent">父级:</string>
+    <string name="asset_parentdesc">父级描述:</string>
+    <string name="asset_location">位置编号:</string>
+    <string name="asset_locdesc">位置描述:</string>
+    <string name="asset_udeqmstatus">设备状态:</string>
+    <string name="asset_udmodule">规格型号:</string>
+    <string name="asset_udconnection">链接方式:</string>
+    <string name="asset_udmanufacturer">生产厂家:</string>
+    <string name="asset_udsequenceno">出厂序列号:</string>
+    <string name="asset_udmaintime">出厂时间:</string>
+    <string name="asset_udusetime">投用日期:</string>
+    <string name="asset_udremarks">备注:</string>
 </resources>

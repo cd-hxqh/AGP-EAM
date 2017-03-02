@@ -16,6 +16,9 @@
 
     <color name="nomal_button_color">#47ded5</color>
     <color name="press_button_color">#098179</color>
+    <color name="text_back_color_1">#C0504D</color>
+    <color name="text_back_color_2">#8064A2</color>
+    <color name="text_back_color_3">#9BBB59</color>
 
     <!-- 透明 -->
     <color name="transparent">#00000000</color>
@@ -24,4 +27,7 @@
     <color name="blue">#41c378</color>
     <!--黑色-->
     <color name="black">#000000</color>
+
+    <color name="light_gray">#EEEEEE</color><!--淡灰色 -->
+    <color name="light_black">#393d3f</color><!--浅黑色 -->
 </resources>

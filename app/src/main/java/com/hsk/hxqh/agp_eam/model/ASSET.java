@@ -7,29 +7,29 @@ import java.io.Serializable;
  */
 
 public class ASSET implements Serializable {
-    public String ASSETNUM;
-    public String CLASSDESC;
-    public String CLASSFICATION;
-    public String CLASSSTRUCTUREID;
-    public String DESCRIPTION;
-    public String FIRSTDESC;
-    public String LOCATION;
-    public String LOCDESC;
-    public String PARENT;
-    public String PARENTDESC;
-    public String SECONDESC;
-    public String THIRDESC;
-    public String UDCONNECTION;
-    public String UDEQMSTATUS;
-    public String UDFIRSTCLASS;
-    public String UDMAINTIME;
-    public String UDMANUFACTURER;
-    public String UDMODULE;
-    public String UDREMARKS;
-    public String UDSECONDCLASS;
-    public String UDSEQUENCENO;
-    public String UDTHIRDCLASS;
-    public String UDUSETIME;
+    public String ASSETNUM;//资产
+    public String CLASSDESC;//
+    public String CLASSFICATION;//
+    public String CLASSSTRUCTUREID;//
+    public String DESCRIPTION;//描述
+    public String FIRSTDESC;//设备大类描述
+    public String LOCATION;//位置
+    public String LOCDESC;//位置描述
+    public String PARENT;//父级
+    public String PARENTDESC;//父级描述
+    public String SECONDESC;//设备中类描述
+    public String THIRDESC;//设备小类描述
+    public String UDCONNECTION;//链接方式
+    public String UDEQMSTATUS;//设备状态
+    public String UDFIRSTCLASS;//设备大类
+    public String UDMAINTIME;//出厂时间
+    public String UDMANUFACTURER;//生产厂家
+    public String UDMODULE;//规格型号
+    public String UDREMARKS;//备注
+    public String UDSECONDCLASS;//设备中类
+    public String UDSEQUENCENO;//出厂序列号
+    public String UDTHIRDCLASS;//设备小类
+    public String UDUSETIME;//投用日期
 
     public String getASSETNUM() {
         return ASSETNUM;

@@ -204,7 +204,7 @@ public class HttpManager {
                     "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'}";
         } else {
             return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.ASSET_NAME + "'," +
-                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'"+"'sinorsearch':{'ASSETNUM':' + value + ','DESCRIPTION':' + value + '}}";
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read',"+"'sinorsearch':{'ASSETNUM':' "+ search + "','DESCRIPTION':'" + search + "'}}";
         }
     }
 

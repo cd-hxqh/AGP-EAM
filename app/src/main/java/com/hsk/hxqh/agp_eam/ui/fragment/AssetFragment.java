@@ -29,6 +29,7 @@ import com.hsk.hxqh.agp_eam.api.HttpRequestHandler;
 import com.hsk.hxqh.agp_eam.api.JsonUtils;
 import com.hsk.hxqh.agp_eam.bean.Results;
 import com.hsk.hxqh.agp_eam.model.ASSET;
+import com.hsk.hxqh.agp_eam.ui.activity.AssetDetailsActivity;
 import com.hsk.hxqh.agp_eam.ui.widget.SwipeRefreshLayout;
 
 import java.util.ArrayList;
@@ -227,16 +228,16 @@ public class AssetFragment extends BaseFragment implements SwipeRefreshLayout.On
      * 获取数据*
      */
     private void initAdapter(final List<ASSET> list) {
-        assetAdapter = new AssetAdapter(getActivity(), R.layout.list_item, list);
+        assetAdapter = new AssetAdapter(getActivity(), R.layout.list_item_asset, list);
         recyclerView.setAdapter(assetAdapter);
         assetAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-//                Intent intent = new Intent(getActivity(), N_carDetailsActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("n_car", items.get(position));
-//                intent.putExtras(bundle);
-//                startActivityForResult(intent, 0);
+                Intent intent = new Intent(getActivity(), AssetDetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("asset", items.get(position));
+                intent.putExtras(bundle);
+                startActivityForResult(intent, 0);
             }
         });
     }
