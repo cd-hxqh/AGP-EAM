@@ -58,4 +58,27 @@
     <string name="string_help_text">Current application lacks the necessary permissions. Please click on the "\n\n" permission set -\ \ "\" - open the required permissions. \n\n finally hit the two back button, you can return.</string>
     <string name="quit">Sign out</string>
 
+    <!--资产-->
+    <string name="asset_title">Asset details</string>
+    <string name="asset_assetnum">Assets:</string>
+    <string name="asset_desc">Description:</string>
+    <string name="asset_udfirstclass">First Class:</string>
+    <string name="asset_firstdesc">First Class Description:</string>
+    <string name="asset_udsecondclass">Second Class:</string>
+    <string name="asset_secondesc">Second Class Description:</string>
+    <string name="asset_udthirdclass">Third Class:</string>
+    <string name="asset_thirdesc">Third Class Description:</string>
+    <string name="asset_parent">Parent:</string>
+    <string name="asset_parentdesc">Parent Description:</string>
+    <string name="asset_location">Location:</string>
+    <string name="asset_locdesc">Location Description:</string>
+    <string name="asset_udeqmstatus">Equipment state:</string>
+    <string name="asset_udmodule">Specification Model:</string>
+    <string name="asset_udconnection">Connection Method:</string>
+    <string name="asset_udmanufacturer">Manufacturer:</string>
+    <string name="asset_udsequenceno">Factory Serial No:</string>
+    <string name="asset_udmaintime">Factory time:</string>
+    <string name="asset_udusetime">Cast date:</string>
+    <string name="asset_udremarks">Remarks:</string>
+
 </resources>

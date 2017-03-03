@@ -55,4 +55,28 @@
     <string name="help"> помочь </string>
     <string name="string_help_text">В настоящее время  отсутствуют необходимые  разрешения на  применение  .  \n\n  нажмите  "настройки  "  \  \  \  "  -\  разрешения  "  -  открыть  необходимые разрешения  .  Наконец,  нажмите  кнопку назад  \n\n  дважды  ,  могут  вернуться  .</string>
     <string name="quit">выход</string>
+
+
+    <!--资产-->
+    <string name="asset_title">Активдетали</string>
+    <string name="asset_assetnum">Актив:</string>
+    <string name="asset_desc">Описание:</string>
+    <string name="asset_udfirstclass">Основная категория оборудования:</string>
+    <string name="asset_firstdesc">Основная категория оборудованияОписание:</string>
+    <string name="asset_udsecondclass">Средняя категория оборудования:</string>
+    <string name="asset_secondesc">Средняя категория оборудованияОписание:</string>
+    <string name="asset_udthirdclass">Подкатегория обородувания :</string>
+    <string name="asset_thirdesc">Подкатегория обородуванияОписание:</string>
+    <string name="asset_parent">Родитель:</string>
+    <string name="asset_parentdesc">РодительОписание:</string>
+    <string name="asset_location">Позиция:</string>
+    <string name="asset_locdesc">ПозицияОписание:</string>
+    <string name="asset_udeqmstatus">состояние оборудования:</string>
+    <string name="asset_udmodule">Номер спецификации:</string>
+    <string name="asset_udconnection">Режим соединений:</string>
+    <string name="asset_udmanufacturer">Завод- изготовитель:</string>
+    <string name="asset_udsequenceno">Порядковый номер выпуска с завода:</string>
+    <string name="asset_udmaintime">отпускной  времени:</string>
+    <string name="asset_udusetime">с  даты  голосования:</string>
+    <string name="asset_udremarks">Примечание:</string>
 </resources>
