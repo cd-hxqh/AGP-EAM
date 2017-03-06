@@ -21,6 +21,15 @@
         android:text="@string/task_text"
         android:textColor="@color/white"
         android:textSize="@dimen/size_20sp" />
-
+    <ImageView
+        android:id="@+id/title_more"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_more"
+        android:visibility="gone"/>
 
 </RelativeLayout>

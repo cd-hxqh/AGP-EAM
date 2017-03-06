@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -15,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -43,6 +46,12 @@ public class AssetDetailsActivity extends BaseActivity {
      * 标题
      */
     private TextView titleTextView;
+
+    private ImageView moreImg;
+    private PopupWindow popupWindow;
+    private LinearLayout bujianLayout;//部件
+    private LinearLayout beijianLayout;//备件
+    private LinearLayout workLayout;//工单历史
 
     private TextView assetnum;
     private EditText assetdesc;
@@ -88,6 +97,7 @@ public class AssetDetailsActivity extends BaseActivity {
     protected void findViewById() {
         backImageView = (ImageView) findViewById(R.id.menu_id);
         titleTextView = (TextView) findViewById(R.id.menu_title);
+        moreImg = (ImageView) findViewById(R.id.title_more);
 //        submitBtn = (Button) findViewById(R.id.sbmit_id);
 
 //        ViewGroup container = (ViewGroup) findViewById(R.id.container);
@@ -121,6 +131,8 @@ public class AssetDetailsActivity extends BaseActivity {
         backImageView.setBackgroundResource(R.drawable.ic_back);
         backImageView.setOnClickListener(backImageViewOnClickListener);
         titleTextView.setText(R.string.asset_title);
+        moreImg.setVisibility(View.VISIBLE);
+        moreImg.setOnClickListener(moreImgOnClickListener);
 //        submitBtn.setVisibility(View.GONE);
 
         if (asset!=null){
@@ -157,6 +169,93 @@ public class AssetDetailsActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             finish();
+        }
+    };
+
+    private View.OnClickListener moreImgOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            showPopupWindow(moreImg);
+        }
+    };
+
+    /**
+     * 初始化showPopupWindow*
+     */
+    private void showPopupWindow(View view) {
+
+        // 一个自定义的布局，作为显示的内容
+        View contentView = LayoutInflater.from(AssetDetailsActivity.this).inflate(
+                R.layout.asset_popup_window, null);
+
+
+        popupWindow = new PopupWindow(contentView,
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+        popupWindow.setTouchable(true);
+        popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                return false;
+            }
+        });
+
+        // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
+        // 我觉得这里是API的一个bug
+        popupWindow.setBackgroundDrawable(getResources().getDrawable(
+                R.drawable.popup_background_mtrl_mult));
+
+        // 设置好参数之后再show
+        popupWindow.showAsDropDown(view);
+
+        bujianLayout = (LinearLayout) contentView.findViewById(R.id.asset_bujian_id);
+        beijianLayout = (LinearLayout) contentView.findViewById(R.id.asset_beijian_id);
+        workLayout = (LinearLayout) contentView.findViewById(R.id.asset_workorder_id);
+        bujianLayout.setOnClickListener(bujianOnClickListener);
+        beijianLayout.setOnClickListener(beijianOnClickListener);
+        workLayout.setOnClickListener(workOnClickListener);
+
+    }
+
+    private View.OnClickListener bujianOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(AssetDetailsActivity.this, Asset_bujianActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("asset", asset);
+//            bundle.putSerializable("woactivityList", woactivityList);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 1000);
+            popupWindow.dismiss();
+        }
+    };
+
+    private View.OnClickListener beijianOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(AssetDetailsActivity.this, Asset_beijianActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("asset", asset);
+//            bundle.putSerializable("woactivityList", woactivityList);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 2000);
+            popupWindow.dismiss();
+        }
+    };
+
+    private View.OnClickListener workOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(AssetDetailsActivity.this, Asset_workorderActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("asset", asset);
+//            bundle.putSerializable("woactivityList", woactivityList);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 3000);
+            popupWindow.dismiss();
         }
     };
 }

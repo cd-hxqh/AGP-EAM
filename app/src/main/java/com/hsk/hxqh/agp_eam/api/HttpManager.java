@@ -209,6 +209,30 @@ public class HttpManager {
     }
 
     /**
+     * 设置部件查询*
+     */
+    public static String getBujianUrl(String assetnum,int curpage, int showcount) {
+            return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.ASSET_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'PARENT':'" + assetnum + "'}}";
+    }
+
+    /**
+     * 设置备件查询*
+     */
+    public static String getBeijianUrl(String assetnum,int curpage, int showcount) {
+        return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.SPAREPART_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'ASSETNNUM':'" + assetnum + "'}}";
+    }
+
+    /**
+     * 设置工单历史查询*
+     */
+    public static String getWorkorderUrl(String assetnum,int curpage, int showcount) {
+        return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.WORKORDER_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'ASSETNNUM':'" + assetnum + "'}}";
+    }
+
+    /**
      * 设置出差总结报告*
      */
     public static String getTripReportUrl(String search, int curpage, int showcount) {

@@ -18,4 +18,5 @@
     <dimen name="dimens_line">0.5dp</dimen>
     <dimen name="dimens_30dp">30dp</dimen>
     <dimen name="dimen_5">5dp</dimen>
+    <dimen name="dimens_16dp">16dp</dimen>
 </resources>

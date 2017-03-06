@@ -41,6 +41,7 @@
     <!--获取信息提示-->
     <string name="item_num_title">номер:</string>
     <string name="item_desc_title">описание:</string>
+    <string name="item_quantity_title">количество:</string>
 
     <!-- hint -->
     <string name="hint_item_num_title">Нет  , номер</string>
@@ -79,4 +80,14 @@
     <string name="asset_udmaintime">отпускной  времени:</string>
     <string name="asset_udusetime">с  даты  голосования:</string>
     <string name="asset_udremarks">Примечание:</string>
+
+    <string name="asset_bujian">компонент </string>
+    <string name="asset_beijian">备件</string>
+    <string name="asset_workorder">запасные части</string>
+    <string name="asset_wonum">порядок работы:</string>
+    <string name="asset_description">описание:</string>
+    <string name="asset_status">Государства:</string>
+    <string name="asset_statusdate">Государства  Дата:</string>
+    <string name="asset_actstart">фактическое  время начала:</string>
+    <string name="asset_actfinish">фактическое время завершения:</string>
 </resources>

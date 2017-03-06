@@ -41,11 +41,7 @@ import java.util.List;
 
 public class AssetFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, SwipeRefreshLayout.OnLoadListener{
     private static final String TAG = "AssetFragment";
-
-
     LinearLayoutManager layoutManager;
-
-
     /**
      * RecyclerView*
      */

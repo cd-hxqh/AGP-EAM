@@ -56,6 +56,18 @@
             android:name=".ui.activity.AssetDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.Asset_bujianActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.Asset_beijianActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.Asset_workorderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
     </application>
 
 </manifest>

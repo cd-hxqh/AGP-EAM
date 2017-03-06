@@ -251,6 +251,8 @@ public class Constants {
     public static final String ASSET_APPID = "ASSET";
     //设备表名
     public static final String ASSET_NAME = "ASSET";
+    //备件表名
+    public static final String SPAREPART_NAME = "SPAREPART";
     //作业计划appid
     public static final String JOBPLAN_APPID = "UDPLANSTND";
     //作业计划表名

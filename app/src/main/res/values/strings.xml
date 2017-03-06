@@ -60,6 +60,7 @@
     <!--获取信息提示-->
     <string name="item_num_title">编号:</string>
     <string name="item_desc_title">描述:</string>
+    <string name="item_quantity_title">数量:</string>
 
     <!-- hint -->
     <string name="have_not_data">暂无数据</string>
@@ -78,7 +79,7 @@
     
     <!--资产-->
     <string name="asset_title">资产详情</string>
-    <string name="asset_assetnum">资产:</string>
+    <string name="asset_assetnum">资产编号:</string>
     <string name="asset_desc">资产描述:</string>
     <string name="asset_udfirstclass">设备大类:</string>
     <string name="asset_firstdesc">设备大类描述:</string>
@@ -98,4 +99,14 @@
     <string name="asset_udmaintime">出厂时间:</string>
     <string name="asset_udusetime">投用日期:</string>
     <string name="asset_udremarks">备注:</string>
+    
+    <string name="asset_bujian">部件</string>
+    <string name="asset_beijian">备件</string>
+    <string name="asset_workorder">工单历史</string>
+    <string name="asset_wonum">工单:</string>
+    <string name="asset_description">描述:</string>
+    <string name="asset_status">状态:</string>
+    <string name="asset_statusdate">状态日期:</string>
+    <string name="asset_actstart">实际开始时间:</string>
+    <string name="asset_actfinish">实际完成时间:</string>
 </resources>

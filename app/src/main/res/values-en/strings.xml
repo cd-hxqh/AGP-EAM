@@ -40,6 +40,7 @@
     <!--获取信息提示-->
     <string name="item_num_title">Number:</string>
     <string name="item_desc_title">Description:</string>
+    <string name="item_quantity_title">quantity:</string>
 
     <!-- hint -->
     <string name="hint_item_num_title">No numbering</string>
@@ -80,5 +81,15 @@
     <string name="asset_udmaintime">Factory time:</string>
     <string name="asset_udusetime">Cast date:</string>
     <string name="asset_udremarks">Remarks:</string>
+
+    <string name="asset_bujian">parts</string>
+    <string name="asset_beijian">spare part</string>
+    <string name="asset_workorder">Work history</string>
+    <string name="asset_wonum">Work order:</string>
+    <string name="asset_description">describe:</string>
+    <string name="asset_status">state:</string>
+    <string name="asset_statusdate">Status date:</string>
+    <string name="asset_actstart">Actual start time:</string>
+    <string name="asset_actfinish">Actual completion time:</string>
 
 </resources>
