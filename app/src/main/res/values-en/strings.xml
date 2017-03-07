@@ -43,6 +43,7 @@
     <string name="item_quantity_title">quantity:</string>
 
     <!-- hint -->
+    <string name="have_not_data">No data</string>
     <string name="hint_item_num_title">No numbering</string>
     <string name="hint_item_desc_title">No description</string>
     <string name="hint_item_date_title">No date</string>
@@ -58,6 +59,9 @@
     <string name="help">Help</string>
     <string name="string_help_text">Current application lacks the necessary permissions. Please click on the "\n\n" permission set -\ \ "\" - open the required permissions. \n\n finally hit the two back button, you can return.</string>
     <string name="quit">Sign out</string>
+
+    <!--退出程序-->
+    <string name="exit_text">Press the exit procedure again</string>
 
     <!--资产-->
     <string name="asset_title">Asset details</string>
@@ -91,5 +95,13 @@
     <string name="asset_statusdate">Status date:</string>
     <string name="asset_actstart">Actual start time:</string>
     <string name="asset_actfinish">Actual completion time:</string>
+
+    <!--工单-->
+    <string name="work_cm">Failure Report WorkOrder</string>
+    <string name="work_pm">Maintain Workorder</string>
+
+    <!--工作申请-->
+    <string name="udfaultreport_text">Failure Report</string>
+    <string name="udworkapply_text">Work Request</string>
 
 </resources>

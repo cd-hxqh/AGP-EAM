@@ -11,11 +11,13 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hsk.hxqh.agp_eam.R;
 import com.hsk.hxqh.agp_eam.api.HttpManager;
 import com.hsk.hxqh.agp_eam.api.HttpRequestHandler;
 import com.hsk.hxqh.agp_eam.dialog.FlippingLoadingDialog;
+import com.hsk.hxqh.agp_eam.manager.AppManager;
 import com.hsk.hxqh.agp_eam.unit.AccountUtils;
 import com.hsk.hxqh.agp_eam.unit.MessageUtils;
 
@@ -81,9 +83,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         versionName.setText(getVersion());
 
-        if (!mUsername.getText().toString().equals("") && !mPassword.getText().toString().equals("")) {
-            mLogin.performClick();
-        }
+//        if (!mUsername.getText().toString().equals("") && !mPassword.getText().toString().equals("")) {
+//            mLogin.performClick();
+//        }
     }
 
     private CompoundButton.OnCheckedChangeListener cheBoxOnCheckedChangListener = new CompoundButton.OnCheckedChangeListener() {
@@ -108,11 +110,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }
                 break;
 
-//            case R.id.ip_address_id:
-//                mMenuItems = new ArrayList<>();
-//                addIpData();
-//                NormalListDialog();
-//                break;
 
         }
     }
@@ -175,122 +172,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         inetnt.setClass(this, MainActivity.class);
         startActivityForResult(inetnt, 0);
     }
-//
-//    /**
-//     * 离线登录*
-//     */
-//    private void LoginOffline() {
-//        final NormalDialog dialog = new NormalDialog(LoginActivity.this);
-//        dialog.content("确定离线登录吗?")//
-//                .showAnim(mBasIn)//
-//                .dismissAnim(mBasOut)//
-//                .show();
-//        dialog.setOnBtnClickL(
-//                new OnBtnClickL() {
-//                    @Override
-//                    public void onBtnClick() {
-//                        dialog.dismiss();
-//                    }
-//                },
-//                new OnBtnClickL() {
-//                    @Override
-//                    public void onBtnClick() {
-//                        AccountUtils.setIsOffLine(LoginActivity.this, true);
-//                        startIntent();
-//                        Toast.makeText(LoginActivity.this, "离线登录成功", Toast.LENGTH_SHORT).show();
-//                        dialog.dismiss();
-//                    }
-//                });
-//    }
 
-//    private long exitTime = 0;
-//
-//    @Override
-//    public void onBackPressed() {
-//        if ((System.currentTimeMillis() - exitTime) > 2000) {
-//            Toast.makeText(this, getString(R.string.exit_text), Toast.LENGTH_SHORT).show();
-//            exitTime = System.currentTimeMillis();
-//        } else {
-//            AppManager.AppExit(LoginActivity.this);
-//        }
-//    }
-
-//    /**
-//     * 根据PersionId查询所属部门*
-//     */
-//    private void findByDepartment(String persionId) {
-//        HttpManager.getData(LoginActivity.this, HttpManager.getPersonUrl1(persionId), new HttpRequestHandler<Results>() {
-//            @Override
-//            public void onSuccess(Results results) {
-//
-//                ArrayList<Person> item = JsonUtils.parsingPerson(results.getResultlist());
-//
-//                if (item != null || item.size() != 0) {
-//                    AccountUtils.setDepartment(LoginActivity.this, item.get(0).department);
-//                }
-//            }
-//
-//            @Override
-//            public void onSuccess(Results results, int totalPages, int currentPage) {
-//
-//
-//            }
-//
-//            @Override
-//            public void onFailure(String error) {
-//
-//            }
-//        });
-//    }
-
-
-    //    private void NormalListDialog() {
-//        final NormalListDialog dialog = new NormalListDialog(LoginActivity.this, mMenuItems);
-//        dialog.title("请选择")//
-//                .showAnim(mBasIn)//
-//                .dismissAnim(mBasOut)//
-//                .show();
-//        dialog.setOnOperItemClickL(new OnOperItemClickL() {
-//            @Override
-//            public void onOperItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Log.i(TAG, "ip=" + idadresss[position]);
-//                String ip = idadresss[position];
-//                if (ip.contains("√")) {
-//                    ip.replace("√", "");
-//                }
-//                AccountUtils.setIpAddress(LoginActivity.this, getResources().getStringArray(R.array.address_text)[position].split(" ")[1].trim());
-//                adress = getResources().getStringArray(R.array.address_text)[position].split(" ")[1].trim();
-//                dialog.dismiss();
-//            }
-//        });
-//    }
-//
-//
-//    /**
-//     * 设置服务端地址*
-//     */
-//    private void addIpData() {
-//        String[] inspotypes = getResources().getStringArray(R.array.address_text);
-//        idadresss = getResources().getStringArray(R.array.address_text);
-//
-//        for (int i = 0; i < inspotypes.length; i++) {
-//            if (adress != null && adress.equals(inspotypes[i].split(" ")[1])) {
-//                mMenuItems.add(new DialogMenuItem("√  " + inspotypes[i], 0));
-//            } else {
-//                mMenuItems.add(new DialogMenuItem("    " + inspotypes[i], 0));
-//            }
-//        }
-//    }
-//
-//
-//    private class MyUICheckUpdateCallback implements UICheckUpdateCallback {
-//        @Override
-//        public void onCheckComplete() {
-//            Log.i(TAG, "onCheckComplete");
-//        }
-//
-//    }
-//
     public String getVersion() {
         try {
             PackageManager manager = this.getPackageManager();
@@ -307,5 +189,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         if (mLoadingDialog == null)
             mLoadingDialog = new FlippingLoadingDialog(this, msg);
         return mLoadingDialog;
+    }
+
+
+    private long exitTime = 0;
+
+    @Override
+    public void onBackPressed() {
+
+
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(this, getResources().getString(R.string.exit_text), Toast.LENGTH_LONG).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            AppManager.AppExit(LoginActivity.this);
+        }
     }
 }

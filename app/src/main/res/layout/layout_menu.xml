@@ -41,10 +41,11 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/task_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_50dp"
-            android:padding="@dimen/size_10dp">
+            android:padding="@dimen/size_10dp"
+            android:paddingLeft="@dimen/size_50dp">
 
             <ImageView
                 android:id="@+id/one"
@@ -68,8 +69,8 @@
             android:id="@+id/asset_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_50dp"
-            android:padding="@dimen/size_10dp">
+            android:padding="@dimen/size_10dp"
+            android:paddingLeft="@dimen/size_50dp">
 
             <ImageView
                 android:id="@+id/two"
@@ -90,10 +91,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/udworkapply_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_50dp"
-            android:padding="@dimen/size_10dp">
+            android:padding="@dimen/size_10dp"
+            android:paddingLeft="@dimen/size_50dp">
 
             <ImageView
                 android:id="@+id/three"
@@ -120,11 +122,11 @@
             android:background="@drawable/line"></View>
 
         <RelativeLayout
-            android:id="@+id/workoder_layout"
+            android:id="@+id/workorder_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_50dp"
-            android:padding="@dimen/size_10dp">
+            android:padding="@dimen/size_10dp"
+            android:paddingLeft="@dimen/size_50dp">
 
             <ImageView
                 android:id="@+id/four"
@@ -145,10 +147,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/kucun_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_50dp"
-            android:padding="@dimen/size_10dp">
+            android:padding="@dimen/size_10dp"
+            android:paddingLeft="@dimen/size_50dp">
 
             <ImageView
                 android:id="@+id/five"
@@ -170,9 +173,10 @@
 
 
         <RelativeLayout
+            android:id="@+id/po_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_50dp"
+            android:paddingLeft="@dimen/size_50dp"
             android:padding="@dimen/size_10dp">
 
             <ImageView

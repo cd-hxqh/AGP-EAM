@@ -31,4 +31,5 @@
     <color name="light_gray">#EEEEEE</color><!--淡灰色 -->
     <color name="light_black">#393d3f</color><!--浅黑色 -->
     <color name="work_background">#E1FBF9</color>
+    <color name="light_blue">#47ded5</color><!--浅黑色 -->
 </resources>

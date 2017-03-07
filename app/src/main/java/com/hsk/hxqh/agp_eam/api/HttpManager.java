@@ -201,10 +201,10 @@ public class HttpManager {
     public static String getAssetUrl(String search, int curpage, int showcount) {
         if (search.equals("")) {
             return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.ASSET_NAME + "'," +
-                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'}";
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ASSETNUM ASC'}";
         } else {
             return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.ASSET_NAME + "'," +
-                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read',"+"'sinorsearch':{'ASSETNUM':' "+ search + "','DESCRIPTION':'" + search + "'}}";
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ASSETNUM ASC','sinorsearch':{'ASSETNUM':' "+ search + "','DESCRIPTION':'" + search + "'}}";
         }
     }
 
@@ -221,7 +221,7 @@ public class HttpManager {
      */
     public static String getBeijianUrl(String assetnum,int curpage, int showcount) {
         return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.SPAREPART_NAME + "'," +
-                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'ASSETNNUM':'" + assetnum + "'}}";
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'ASSETNUM':'" + assetnum + "'}}";
     }
 
     /**

@@ -44,6 +44,7 @@
     <string name="item_quantity_title">количество:</string>
 
     <!-- hint -->
+    <string name="have_not_data">Нет  данных</string>
     <string name="hint_item_num_title">Нет  , номер</string>
     <string name="hint_item_desc_title">Нет  описания</string>
     <string name="hint_item_date_title">Нет  даты</string>
@@ -56,6 +57,9 @@
     <string name="help"> помочь </string>
     <string name="string_help_text">В настоящее время  отсутствуют необходимые  разрешения на  применение  .  \n\n  нажмите  "настройки  "  \  \  \  "  -\  разрешения  "  -  открыть  необходимые разрешения  .  Наконец,  нажмите  кнопку назад  \n\n  дважды  ,  могут  вернуться  .</string>
     <string name="quit">выход</string>
+
+    <!--退出程序-->
+    <string name="exit_text">нажмите  один раз  выйти из программы</string>
 
 
     <!--资产-->
@@ -90,4 +94,12 @@
     <string name="asset_statusdate">Государства  Дата:</string>
     <string name="asset_actstart">фактическое  время начала:</string>
     <string name="asset_actfinish">фактическое время завершения:</string>
+
+
+    <!--工单-->
+    <string name="work_cm">вина  /  скрытые  работы</string>
+    <string name="work_pm">работы</string>
+    <!--工作申请-->
+    <string name="udfaultreport_text">Порядковый номер акта доклада</string>
+    <string name="udworkapply_text">Порядковый номер рабочее</string>
 </resources>

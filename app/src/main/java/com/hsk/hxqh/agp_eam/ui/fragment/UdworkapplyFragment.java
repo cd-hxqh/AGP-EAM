@@ -9,10 +9,12 @@ import com.hsk.hxqh.agp_eam.R;
 
 /**
  * Created by Administrator on 2017/2/27.
+ * 工作申请
  */
 
-public class WorkOrderFragment extends BaseFragment{
-    private static final String TAG = "WorkOrderFragment";
+public class UdworkapplyFragment extends BaseFragment {
+    private static final String TAG = "UdworkapplyFragment";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +23,7 @@ public class WorkOrderFragment extends BaseFragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_workorder, container,
+        View view = inflater.inflate(R.layout.fragment_udworkapplylist, container,
                 false);
 
         findByIdView(view);
@@ -44,5 +46,6 @@ public class WorkOrderFragment extends BaseFragment{
 
 
     }
+
 
 }

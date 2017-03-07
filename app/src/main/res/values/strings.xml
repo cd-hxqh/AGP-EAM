@@ -37,7 +37,6 @@
 
     <string name="login_error_empty_user">用户名不能为空</string>
     <string name="login_error_empty_passwd">密码不能为空</string>
-
     <string name="login_loging">正在登陆中请稍后...</string>
 
     <!--网络信息提示-->
@@ -76,6 +75,9 @@
     <string name="help">帮助</string>
     <string name="string_help_text">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。\n\n最后点击两次后退按钮，即可返回。</string>
     <string name="quit">退出</string>
+
+    <!--退出程序-->
+    <string name="exit_text">再按一次退出程序</string>
     
     <!--资产-->
     <string name="asset_title">资产详情</string>
@@ -113,4 +115,7 @@
     <!--工单-->
     <string name="work_cm">故障/隐患工单</string>
     <string name="work_pm">维护工单</string>
+    <!--工作申请-->
+    <string name="udfaultreport_text">故障提报</string>
+    <string name="udworkapply_text">工作申请</string>
 </resources>
