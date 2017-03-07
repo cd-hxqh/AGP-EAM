@@ -120,6 +120,7 @@
             android:background="@drawable/line"></View>
 
         <RelativeLayout
+            android:id="@+id/workoder_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/size_50dp"
