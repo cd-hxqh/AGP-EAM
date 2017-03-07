@@ -36,6 +36,7 @@ public class WorkOrderFragment extends BaseFragment{
      * 初始化界面组件*
      */
     private void findByIdView(View view) {
+
     }
 
 
