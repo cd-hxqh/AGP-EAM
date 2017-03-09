@@ -10,6 +10,7 @@ import com.hsk.hxqh.agp_eam.model.ASSET;
 import com.hsk.hxqh.agp_eam.model.ASSET_WORKORDER;
 import com.hsk.hxqh.agp_eam.model.SPAREPART;
 import com.hsk.hxqh.agp_eam.model.UDFAULTREPORT;
+import com.hsk.hxqh.agp_eam.model.UDWORKAPPLY;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -2523,51 +2524,51 @@ public class JsonUtils<E> {
         }
 
     }
-//
-//    /**
-//     * 巡检单*
-//     */
-//    public static ArrayList<Udinspo> parsingUdinspo(Context ctx, String data) {
-//        ArrayList<Udinspo> list = null;
-//        Udinspo udinspo = null;
-//        try {
-//            JSONArray jsonArray = new JSONArray(data);
-//            JSONObject jsonObject;
-//            list = new ArrayList<Udinspo>();
-//            for (int i = 0; i < jsonArray.length(); i++) {
-//                udinspo = new Udinspo();
-//                jsonObject = jsonArray.getJSONObject(i);
-//                Field[] field = udinspo.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
-//                for (int j = 0; j < field.length; j++) {     //遍历所有属性
-//                    field[j].setAccessible(true);
-//                    String name = field[j].getName();    //获取属性的名字
-//                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
-//                        try {
-//                            // 调用getter方法获取属性值
-//                            Method getOrSet = udinspo.getClass().getMethod("get" + name);
-//                            Object value = getOrSet.invoke(udinspo);
-//                            if (value == null) {
-//                                //调用setter方法设属性值
-//                                Class[] parameterTypes = new Class[1];
-//                                parameterTypes[0] = field[j].getType();
-//                                getOrSet = udinspo.getClass().getDeclaredMethod("set" + name, parameterTypes);
-//                                getOrSet.invoke(udinspo, jsonObject.getString(name));
-//                            }
-//
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//
-//                }
-//                list.add(udinspo);
-//            }
-//            return list;
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
+
+    /**
+     * 工作申请
+     */
+    public static ArrayList<UDWORKAPPLY> parsingUdworkapply(Context ctx, String data) {
+        ArrayList<UDWORKAPPLY> list = null;
+        UDWORKAPPLY udworkapply = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<UDWORKAPPLY>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                udworkapply = new UDWORKAPPLY();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = udworkapply.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = udworkapply.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(udworkapply);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = udworkapply.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(udworkapply, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(udworkapply);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 //
 //    /**
 //     * 巡检项目*

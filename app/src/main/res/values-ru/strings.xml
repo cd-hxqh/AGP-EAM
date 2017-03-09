@@ -119,4 +119,16 @@
     <string name="status_text">Состояние:</string>
     <string name="createbyname_text">создатель:</string>
     <string name="createdate_text">Дата создания:</string>
+
+    <!--工作申请-->
+    <string name="wonum_text">Рабочий одной цифры::</string>
+    <string name="plannum_text">Порядковый номер годового плана:</string>
+    <string name="woapplynum_text">Порядковый номер рабочее заявления:</string>
+    <string name="purpose_text">главная цель:</string>
+    <string name="workexe_text">количество рабочий исполнител:</string>
+    <string name="preparedbyname_text">Составители:</string>
+    <string name="preparedbytitle_text">должность:</string>
+    <string name="startdate_text">Время начала:</string>
+    <string name="workdates_text">сроки выполнения работ:</string>
+    <string name="jpnum_text">Порядковый номер производственного плана:</string>
 </resources>

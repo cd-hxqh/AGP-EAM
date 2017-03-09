@@ -76,6 +76,14 @@
             android:name=".ui.activity.UdfaultreportDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.UdworkapplyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.UdworkapplyDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.hsk.hxqh.agp_eam.R;
 import com.hsk.hxqh.agp_eam.ui.activity.UdfaultreportActivity;
+import com.hsk.hxqh.agp_eam.ui.activity.UdworkapplyActivity;
 
 /**
  * Created by Administrator on 2017/2/27.
@@ -22,6 +23,11 @@ public class UdworkapplyFragment extends BaseFragment {
      * 故障提报单
      **/
     private RelativeLayout udfaultreportLayout;
+    /**
+     * 工作申请
+     **/
+    private RelativeLayout udworkapplyLayout;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,7 @@ public class UdworkapplyFragment extends BaseFragment {
      */
     private void findByIdView(View view) {
         udfaultreportLayout = (RelativeLayout) view.findViewById(R.id.udfaultreport_layout);
+        udworkapplyLayout = (RelativeLayout) view.findViewById(R.id.udworkapplylayout_id);
 
     }
 
@@ -53,6 +60,7 @@ public class UdworkapplyFragment extends BaseFragment {
      */
     private void initView() {
         udfaultreportLayout.setOnClickListener(udfaultreportLayoutOnClickListener);
+        udworkapplyLayout.setOnClickListener(udworkapplyLayoutOnClickListener);
 
     }
 
@@ -61,6 +69,13 @@ public class UdworkapplyFragment extends BaseFragment {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(getActivity(), UdfaultreportActivity.class);
+            startActivityForResult(intent, 0);
+        }
+    };
+    private View.OnClickListener udworkapplyLayoutOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getActivity(), UdworkapplyActivity.class);
             startActivityForResult(intent, 0);
         }
     };

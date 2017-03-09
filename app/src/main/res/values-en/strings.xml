@@ -121,4 +121,16 @@
     <string name="createbyname_text">Create By:</string>
     <string name="createdate_text">Create Date:</string>
 
+    <!--工作申请-->
+    <string name="wonum_text">Work order no:</string>
+    <string name="plannum_text">Year Plan No:</string>
+    <string name="woapplynum_text">Work Request No:</string>
+    <string name="purpose_text">Purpose:</string>
+    <string name="workexe_text">Quantity of Works Executors:</string>
+    <string name="preparedbyname_text">Prepared By:</string>
+    <string name="preparedbytitle_text">Position:</string>
+    <string name="startdate_text">Start Time:</string>
+    <string name="workdates_text">Dates of Work:</string>
+    <string name="jpnum_text">Job Plan No:</string>
+
 </resources>

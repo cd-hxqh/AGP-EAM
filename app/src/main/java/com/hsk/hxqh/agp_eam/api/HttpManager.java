@@ -499,6 +499,15 @@ public class HttpManager {
         }
         return "{'appid':'" + Constants.UDFAULTREP_APPID + "','objectname':'" + Constants.UDFAULTREPORT_NAME + "','curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'" + ",'orderby':'UDFAULTREPORTNUM DESC','sinorsearch':{'UDFAULTREPORTNUM':'" + value + "','DESCRIPTION':'" + value + "'}}";
     }
+    /**
+     * 设置工作申请的接口
+     */
+    public static String getudworkapplyurl(String value, int curpage, int showcount) {
+        if (value.equals("")) {
+            return "{'appid':'" + Constants.UDFEDBKCON_APPID + "','objectname':'" + Constants.UDWORKAPPLY_NAME + "','curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'WOAPPLYNUM ASC'}";
+        }
+        return "{'appid':'" + Constants.UDFEDBKCON_APPID + "','objectname':'" + Constants.UDWORKAPPLY_NAME + "','curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'" + ",'orderby':'WOAPPLYNUM ASC','sinorsearch':{'WOAPPLYNUM':'" + value + "','DESCRIPTION':'" + value + "'}}";
+    }
 
     /**
      * 根据id查找故障提报单的接口

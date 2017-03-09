@@ -207,6 +207,14 @@ public class Constants {
     /**故障提报单表名**/
     public static final String UDFAULTREPORT_NAME = "UDFAULTREPORT";
 
+    /**工作申请appid**/
+    public static final String UDFEDBKCON_APPID = "UDWOAPPLY";
+    /**工作申请表名**/
+    public static final String UDWORKAPPLY_NAME = "UDWORKAPPLY";
+
+
+
+
     /**巡检单appid**/
     public static final String UDINSPOAPP_APPID = "UDINSPOAPP";
     /**巡检单表名**/

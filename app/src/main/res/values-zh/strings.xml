@@ -78,7 +78,7 @@
 
     <!--资产-->
     <string name="asset_title">资产详情</string>
-    <string name="asset_assetnum">资产:</string>
+    <string name="asset_assetnum">资产编号:</string>
     <string name="asset_desc">资产描述:</string>
     <string name="asset_udfirstclass">设备大类:</string>
     <string name="asset_firstdesc">设备大类描述:</string>
@@ -131,4 +131,16 @@
     <string name="status_text">状态:</string>
     <string name="createbyname_text">创建人:</string>
     <string name="createdate_text">创建时间:</string>
+
+    <!--工作申请-->
+    <string name="wonum_text">工单编号:</string>
+    <string name="plannum_text">年度计划编号:</string>
+    <string name="woapplynum_text">工作申请编号:</string>
+    <string name="purpose_text">目的:</string>
+    <string name="workexe_text">工作执行人数:</string>
+    <string name="preparedbyname_text">准备人姓名:</string>
+    <string name="preparedbytitle_text">职位:</string>
+    <string name="startdate_text">开始时间:</string>
+    <string name="workdates_text">工期:</string>
+    <string name="jpnum_text">作业计划编号:</string>
 </resources>
