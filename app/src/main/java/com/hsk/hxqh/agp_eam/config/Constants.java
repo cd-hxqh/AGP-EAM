@@ -203,9 +203,9 @@ public class Constants {
     public static final String UDSTOCKLINE_NAME = "UDSTOCKLINE";
 
     /**故障提报单appid**/
-    public static final String UDREPORT_APPID = "UDREPORT";
+    public static final String UDFAULTREP_APPID = "UDFAULTREP";
     /**故障提报单表名**/
-    public static final String UDREPORT_NAME = "UDREPORT";
+    public static final String UDFAULTREPORT_NAME = "UDFAULTREPORT";
 
     /**巡检单appid**/
     public static final String UDINSPOAPP_APPID = "UDINSPOAPP";

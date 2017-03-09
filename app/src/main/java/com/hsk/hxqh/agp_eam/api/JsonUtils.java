@@ -9,6 +9,7 @@ import com.hsk.hxqh.agp_eam.config.Constants;
 import com.hsk.hxqh.agp_eam.model.ASSET;
 import com.hsk.hxqh.agp_eam.model.ASSET_WORKORDER;
 import com.hsk.hxqh.agp_eam.model.SPAREPART;
+import com.hsk.hxqh.agp_eam.model.UDFAULTREPORT;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -2477,52 +2478,51 @@ public class JsonUtils<E> {
 //        return jsonObject.toString();
 //    }
 //
-//    /**
-//     * 故障提报单*
-//     */
-//    public static ArrayList<Udreport> parsingUdreport(Context ctx, String data) {
-//        ArrayList<Udreport> list = null;
-//        Udreport udreport = null;
-//        try {
-//            JSONArray jsonArray = new JSONArray(data);
-//            JSONObject jsonObject;
-//            list = new ArrayList<Udreport>();
-//            for (int i = 0; i < jsonArray.length(); i++) {
-//                udreport = new Udreport();
-//                jsonObject = jsonArray.getJSONObject(i);
-//                Field[] field = udreport.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
-//                for (int j = 0; j < field.length; j++) {     //遍历所有属性
-//                    field[j].setAccessible(true);
-//                    String name = field[j].getName();    //获取属性的名字
-//                    Log.i(TAG, "name=" + name);
-//                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
-//                        try {
-//                            // 调用getter方法获取属性值
-//                            Method getOrSet = udreport.getClass().getMethod("get" + name);
-//                            Object value = getOrSet.invoke(udreport);
-//                            if (value == null) {
-//                                //调用setter方法设属性值
-//                                Class[] parameterTypes = new Class[1];
-//                                parameterTypes[0] = field[j].getType();
-//                                getOrSet = udreport.getClass().getDeclaredMethod("set" + name, parameterTypes);
-//                                getOrSet.invoke(udreport, jsonObject.getString(name));
-//                            }
-//
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//
-//                }
-//                list.add(udreport);
-//            }
-//            return list;
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//
-//    }
+    /**
+     * 故障提报单*
+     */
+    public static ArrayList<UDFAULTREPORT> parsingUDFAULTREPORT(Context ctx, String data) {
+        ArrayList<UDFAULTREPORT> list = null;
+        UDFAULTREPORT udfaultreport = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<UDFAULTREPORT>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                udfaultreport = new UDFAULTREPORT();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = udfaultreport.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = udfaultreport.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(udfaultreport);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = udfaultreport.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(udfaultreport, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(udfaultreport);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
 //
 //    /**
 //     * 巡检单*

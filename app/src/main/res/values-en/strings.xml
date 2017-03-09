@@ -86,8 +86,8 @@
     <string name="asset_udusetime">Cast date:</string>
     <string name="asset_udremarks">Remarks:</string>
 
-    <string name="asset_bujian">parts</string>
-    <string name="asset_beijian">spare part</string>
+    <string name="asset_bujian">Parts</string>
+    <string name="asset_beijian">Spare part</string>
     <string name="asset_workorder">Work history</string>
     <string name="asset_wonum">Work order:</string>
     <string name="asset_description">describe:</string>
@@ -103,5 +103,22 @@
     <!--工作申请-->
     <string name="udfaultreport_text">Failure Report</string>
     <string name="udworkapply_text">Work Request</string>
+
+    <!--故障提报单-->
+    <string name="have_not_num_text">No no</string>
+    <string name="stationdes_text">Station:</string>
+
+    <string name="udfaultreportnum_text">ACT No:</string>
+    <string name="description_text">Failure Description:</string>
+    <string name="udstationnum_text">Station No:</string>
+    <string name="udinside＿text">Inside Station?</string>
+    <string name="udinlocation_text">Need Generate Work Order?</string>
+    <string name="udsjgy_text">Need Craft Adjustment?</string>
+    <string name="reason_text">Failure Reason:</string>
+    <string name="conclusion_text">Failure Conclusion:</string>
+    <string name="material_text">Material Used:</string>
+    <string name="status_text">Status:</string>
+    <string name="createbyname_text">Create By:</string>
+    <string name="createdate_text">Create Date:</string>
 
 </resources>

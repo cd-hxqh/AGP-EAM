@@ -102,4 +102,21 @@
     <!--工作申请-->
     <string name="udfaultreport_text">Порядковый номер акта доклада</string>
     <string name="udworkapply_text">Порядковый номер рабочее</string>
+
+    <!--故障提报单-->
+    <string name="have_not_num_text">Нет  , номер</string>
+    <string name="stationdes_text">Станционная площадка:</string>
+
+    <string name="udfaultreportnum_text">Порядковый номер акта доклада о неисправности:</string>
+    <string name="description_text">Описание неисправности:</string>
+    <string name="udstationnum_text">Расположение:</string>
+    <string name="udinside＿text">Внутри станционной площадки ?</string>
+    <string name="udinlocation_text">Необходимо распределение работ ?</string>
+    <string name="udsjgy_text">Техника исправления?</string>
+    <string name="reason_text">Причина неисправности:</string>
+    <string name="conclusion_text">Общий итог неисправности:</string>
+    <string name="material_text">Расходуемые материалы:</string>
+    <string name="status_text">Состояние:</string>
+    <string name="createbyname_text">создатель:</string>
+    <string name="createdate_text">Дата создания:</string>
 </resources>

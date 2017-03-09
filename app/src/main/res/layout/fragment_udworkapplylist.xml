@@ -14,20 +14,23 @@
         android:orientation="horizontal">
 
         <RelativeLayout
+            android:id="@+id/udfaultreport_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.0">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_gztb" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:text="@string/udfaultreport_text"/>
+                android:text="@string/udfaultreport_text" />
         </RelativeLayout>
 
         <View
@@ -39,17 +42,19 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.0">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_gzsq"/>
+                android:src="@drawable/ic_gzsq" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:text="@string/udworkapply_text"/>
+                android:text="@string/udworkapply_text" />
         </RelativeLayout>
 
     </LinearLayout>

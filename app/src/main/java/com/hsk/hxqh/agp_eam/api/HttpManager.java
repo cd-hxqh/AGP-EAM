@@ -493,18 +493,18 @@ public class HttpManager {
     /**
      * 设置故障提报单的接口
      */
-    public static String getudreporturl(String value, int curpage, int showcount) {
+    public static String getudfaultreporturl(String value, int curpage, int showcount) {
         if (value.equals("")) {
-            return "{'appid':'" + Constants.UDREPORT_APPID + "','objectname':'" + Constants.UDREPORT_NAME + "','curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'REPORTNUM DESC'}";
+            return "{'appid':'" + Constants.UDFAULTREP_APPID + "','objectname':'" + Constants.UDFAULTREPORT_NAME + "','curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'UDFAULTREPORTNUM DESC'}";
         }
-        return "{'appid':'" + Constants.UDREPORT_APPID + "','objectname':'" + Constants.UDREPORT_NAME + "','curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'" + ",'orderby':'REPORTNUM DESC','sinorsearch':{'REPORTNUM':'" + value + "','DESCRIPTION':'" + value + "'}}";
+        return "{'appid':'" + Constants.UDFAULTREP_APPID + "','objectname':'" + Constants.UDFAULTREPORT_NAME + "','curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'" + ",'orderby':'UDFAULTREPORTNUM DESC','sinorsearch':{'UDFAULTREPORTNUM':'" + value + "','DESCRIPTION':'" + value + "'}}";
     }
 
     /**
      * 根据id查找故障提报单的接口
      */
     public static String getudreporturlByid(String udreportid) {
-        return "{'appid':'" + Constants.UDREPORT_APPID + "','objectname':'" + Constants.UDREPORT_NAME + "','curpage':1,'showcount':20,'option':'read','condition':{'UDREPORTID':'" + udreportid + "'}}";
+        return "{'appid':'" + Constants.UDFAULTREP_APPID + "','objectname':'" + Constants.UDFAULTREPORT_NAME + "','curpage':1,'showcount':20,'option':'read','condition':{'UDREPORTID':'" + udreportid + "'}}";
     }
 
     /**

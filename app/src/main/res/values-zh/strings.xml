@@ -98,4 +98,37 @@
     <string name="asset_udmaintime">出厂时间:</string>
     <string name="asset_udusetime">投用日期:</string>
     <string name="asset_udremarks">备注:</string>
+
+    <string name="asset_bujian">部件</string>
+    <string name="asset_beijian">备件</string>
+    <string name="asset_workorder">工单历史</string>
+    <string name="asset_wonum">工单:</string>
+    <string name="asset_description">描述:</string>
+    <string name="asset_status">状态:</string>
+    <string name="asset_statusdate">状态日期:</string>
+    <string name="asset_actstart">实际开始时间:</string>
+    <string name="asset_actfinish">实际完成时间:</string>
+
+    <!--工单-->
+    <string name="work_cm">故障/隐患工单</string>
+    <string name="work_pm">维护工单</string>
+    <!--工作申请-->
+    <string name="udfaultreport_text">故障提报</string>
+    <string name="udworkapply_text">工作申请</string>
+    <!--故障提报单-->
+    <string name="have_not_num_text">暂无编号</string>
+    <string name="stationdes_text">站场:</string>
+
+    <string name="udfaultreportnum_text">故障编号:</string>
+    <string name="description_text">故障描述:</string>
+    <string name="udstationnum_text">站场编号:</string>
+    <string name="udinside＿text">站场内?</string>
+    <string name="udinlocation_text">需要派工?</string>
+    <string name="udsjgy_text">技术整改?</string>
+    <string name="reason_text">故障原因:</string>
+    <string name="conclusion_text">故障总结:</string>
+    <string name="material_text">消耗物料:</string>
+    <string name="status_text">状态:</string>
+    <string name="createbyname_text">创建人:</string>
+    <string name="createdate_text">创建时间:</string>
 </resources>

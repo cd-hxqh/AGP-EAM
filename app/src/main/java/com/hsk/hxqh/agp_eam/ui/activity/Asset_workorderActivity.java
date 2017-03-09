@@ -1,6 +1,5 @@
 package com.hsk.hxqh.agp_eam.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import com.hsk.hxqh.agp_eam.R;
 import com.hsk.hxqh.agp_eam.adpter.Asset_workAdapter;
 import com.hsk.hxqh.agp_eam.adpter.BaseQuickAdapter;
-import com.hsk.hxqh.agp_eam.adpter.bujianAdapter;
 import com.hsk.hxqh.agp_eam.api.HttpManager;
 import com.hsk.hxqh.agp_eam.api.HttpRequestHandler;
 import com.hsk.hxqh.agp_eam.api.JsonUtils;
@@ -43,12 +41,6 @@ public class Asset_workorderActivity extends BaseActivity implements SwipeRefres
     private int page = 1;
     public ASSET asset;
     public ArrayList<ASSET_WORKORDER> assetArrayList = new ArrayList<>();
-//    public ArrayList<Woactivity> deleteList = new ArrayList<>();
-
-//    private BaseAnimatorSet mBasIn;
-//    private BaseAnimatorSet mBasOut;
-//    private LinearLayout confirmlayout;
-//    private Button confirmBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +54,6 @@ public class Asset_workorderActivity extends BaseActivity implements SwipeRefres
 
     private void getIntentDate() {
         asset = (ASSET) getIntent().getSerializableExtra("asset");
-//        woactivityList = (ArrayList<Woactivity>) getIntent().getSerializableExtra("woactivityList");
     }
 
     @Override
@@ -73,8 +64,6 @@ public class Asset_workorderActivity extends BaseActivity implements SwipeRefres
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_id);
         refresh_layout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         nodatalayout = (LinearLayout) findViewById(R.id.have_not_data_id);
-//        confirmlayout = (LinearLayout) findViewById(R.id.button_layout);
-//        confirmBtn = (Button) findViewById(R.id.confirm);
     }
 
     @Override
