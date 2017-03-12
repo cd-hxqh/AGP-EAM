@@ -14,6 +14,7 @@
         android:orientation="horizontal">
 
         <RelativeLayout
+            android:id="@+id/work_cm_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.0">
@@ -36,6 +37,7 @@
             android:background="@drawable/line" />
 
         <RelativeLayout
+            android:id="@+id/work_pm_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.0">

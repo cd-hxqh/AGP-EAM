@@ -77,6 +77,42 @@
             android:screenOrientation="portrait"
             android:theme="@style/AGP.ActivityTheme" />
         <activity
+            android:name=".ui.activity.WorkOederListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.WorkOrderDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.Work_PlanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.WoactivityDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.WplaborDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.WpmaterialDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.Work_RealActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.LabtransDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.MatusetransDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
             android:name=".ui.activity.UdworkapplyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AGP.ActivityTheme" />

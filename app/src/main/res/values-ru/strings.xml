@@ -99,6 +99,31 @@
     <!--工单-->
     <string name="work_cm">вина  /  скрытые  работы</string>
     <string name="work_pm">работы</string>
+    <string name="work_wonum">Рабочее задание:</string>
+    <string name="work_description">описание:</string>
+    <string name="work_worktype">Тип работы:</string>
+    <string name="work_assetnum">Актив:</string>
+    <string name="work_assetdes">описание  активов:</string>
+    <string name="work_stationdes">Станционная площадка:</string>
+    <string name="work_location">Позиция:</string>
+    <string name="work_locationdes">описание места:</string>
+    <string name="work_udworeqnum">Порядковый номер рабочее заявления:</string>
+    <string name="work_udfaultreportnum">Порядковый номер акта доклада о неисправности:</string>
+    <string name="work_udyearplannum">Порядковый номер годового плана:</string>
+    <string name="work_udstatus">Состояние:</string>
+    <string name="work_createbyname">Учредитель:</string>
+    <string name="work_createdate">Дата создания:</string>
+    <string name="work_schedstart">Начало по графику:</string>
+    <string name="work_schedfinish">Завершение по графику:</string>
+    <string name="work_actstart">Фактическое начало:</string>
+    <string name="work_actfinish">Фактическое завершение:</string>
+    <string name="work_udyear">Годовой план:</string>
+    <string name="work_workfrequency">Частота:</string>
+    <string name="work_jpnum">Производственный план:</string>
+    <string name="work_udworkscope">Рабочая область:</string>
+    <string name="work_udfaultdesc">Описание неисправности:</string>
+    <string name="work_udreason">Причина неисправности:</string>
+    <string name="work_hazardlevel">сроки выполнения работ:</string>
     <!--工作申请-->
     <string name="udfaultreport_text">Порядковый номер акта доклада</string>
     <string name="udworkapply_text">Порядковый номер рабочее</string>

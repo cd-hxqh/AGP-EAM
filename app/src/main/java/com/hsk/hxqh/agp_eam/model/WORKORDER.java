@@ -7,32 +7,32 @@ import java.io.Serializable;
  */
 
 public class WORKORDER implements Serializable {
-    public String WONUM;//
-    public String DESCRIPTION;//
-    public String WORKTYPE;//
-    public String WORKFREQUENCY;//
-    public String ACTSTART;//
-    public String ACTFINISH;//
-    public String ASSETNUM;//
-    public String ASSETDES;//
-    public String CREATEBYNAME;//
-    public String CREATEDATE;//
-    public String HAZARDLEVEL;//
-    public String JPNUM;//
-    public String LOCATION;//
-    public String LOCATIONDES;//
-    public String SCHEDSTART;//
-    public String SCHEDFINISH;//
-    public String STATIONDES;//
-    public String UDFAULTDESC;//
-    public String UDFAULTREPORTNUM;//
-    public String UDREASON;//
+    public String WONUM;//工单
+    public String DESCRIPTION;//描述
+    public String WORKTYPE;//工单类型
+    public String ASSETNUM;//资产
+    public String ASSETDES;//资产描述
+    public String STATIONDES;//站场
+    public String LOCATION;//位置
+    public String LOCATIONDES;//位置描述
+    public String UDWOREQNUM;//工作申请编号
+    public String UDFAULTREPORTNUM;//故障提报ACT号
+    public String UDYEARPLANNUM;//年度计划编号
+    public String UDSTATUS;//状态
+    public String CREATEBYNAME;//创建人
+    public String CREATEDATE;//创建时间
+    public String SCHEDSTART;//调度开始时间
+    public String SCHEDFINISH;//计划完成时间
+    public String ACTSTART;//实际开始时间
+    public String ACTFINISH;//实际完成时间
+    public String UDYEAR;//年度计划
+    public String WORKFREQUENCY;//频率
+    public String JPNUM;//作业计划
+    public String UDWORKSCOPE;//工作范围
+    public String UDFAULTDESC;//故障描述
+    public String UDREASON;//故障原因
+    public String HAZARDLEVEL;//工期
     public String UDSTATIONNUM;//
-    public String UDSTATUS;//
-    public String UDWOREQNUM;//
-    public String UDWORKSCOPE;//
-    public String UDYEAR;//
-    public String UDYEARPLANNUM;//
 
     public String getWONUM() {
         return WONUM;

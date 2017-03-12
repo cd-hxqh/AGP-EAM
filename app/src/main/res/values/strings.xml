@@ -115,6 +115,82 @@
     <!--工单-->
     <string name="work_cm">故障/隐患工单</string>
     <string name="work_pm">维护工单</string>
+    <string name="work_wonum">工单编号:</string>
+    <string name="work_description">描述:</string>
+    <string name="work_worktype">工单类型:</string>
+    <string name="work_assetnum">资产:</string>
+    <string name="work_assetdes">资产描述:</string>
+    <string name="work_stationdes">站场:</string>
+    <string name="work_location">位置:</string>
+    <string name="work_locationdes">位置描述:</string>
+    <string name="work_udworeqnum">工作申请编号:</string>
+    <string name="work_udfaultreportnum">故障提报ACT号:</string>
+    <string name="work_udyearplannum">年度计划编号:</string>
+    <string name="work_udstatus">状态:</string>
+    <string name="work_createbyname">创建人:</string>
+    <string name="work_createdate">创建时间:</string>
+    <string name="work_schedstart">调度开始时间:</string>
+    <string name="work_schedfinish">计划完成时间:</string>
+    <string name="work_actstart">实际开始时间:</string>
+    <string name="work_actfinish">实际完成时间:</string>
+    <string name="work_udyear">年度计划:</string>
+    <string name="work_workfrequency">频率:</string>
+    <string name="work_jpnum">作业计划:</string>
+    <string name="work_udworkscope">工作范围:</string>
+    <string name="work_udfaultdesc">故障描述:</string>
+    <string name="work_udreason">故障原因:</string>
+    <string name="work_hazardlevel">工期:</string>
+
+    <string name="work_workplan">工作计划</string>
+    <string name="work_workreal">实际情况</string>
+    <string name="work_workflow">发送工作流</string>
+    <string name="work_upload">上传附件</string>
+    <string name="work_woactivity">任务</string>
+
+    <string name="woactivity_taskid">任务:</string>
+    <string name="woactivity_description">摘要:</string>
+    <string name="woactivity_estdur">估计持续时间:</string>
+    <string name="woactivity_status">状态:</string>
+    <string name="woactivity_wosequence">序号:</string>
+
+    <string name="work_wplabor">员工</string>
+    <string name="wplabor_taskid">任务:</string>
+    <string name="wplabor_laborcode">员工:</string>
+    <string name="wplabor_quantity">数量:</string>
+
+    <string name="work_wpmaterial">物料</string>
+    <string name="wpmaterial_taskid">任务:</string>
+    <string name="wpmaterial_itemnum">项目:</string>
+    <string name="wpmaterial_description">描述:</string>
+    <string name="wpmaterial_itemqty">数量:</string>
+    <string name="wpmaterial_location">库房:</string>
+    <string name="wpmaterial_vendor">供应商:</string>
+    <string name="wpmaterial_requestby">请求者:</string>
+    <string name="wpmaterial_requiredate">要求的日期:</string>
+
+    <string name="work_labtrans">员工</string>
+    <string name="labtrans_actualstaskid">任务:</string>
+    <string name="labtrans_laborcode">员工:</string>
+    <string name="labtrans_startdate">开始日期:</string>
+    <string name="labtrans_starttime">开始时间:</string>
+    <string name="labtrans_finishdate">结束日期:</string>
+    <string name="labtrans_finishtime">结束时间:</string>
+    <string name="labtrans_regularhrs">常规时数:</string>
+
+    <string name="work_matusetrans">物料</string>
+    <string name="matusetrans_actualstaskid">任务:</string>
+    <string name="matusetrans_itemnum">项目:</string>
+    <string name="matusetrans_description">描述:</string>
+    <string name="matusetrans_storeloc">库房:</string>
+    <string name="matusetrans_positivequantity">数量:</string>
+    <string name="matusetrans_binnum">货柜:</string>
+    <string name="matusetrans_lotnum">批次:</string>
+    <string name="matusetrans_rotassetnum">周转资产:</string>
+    <string name="matusetrans_issuetype">交易类型:</string>
+    <string name="matusetrans_enterby">输入人:</string>
+    <string name="matusetrans_actualdate">实际日期:</string>
+
+
     <!--工作申请-->
     <string name="udfaultreport_text">故障提报</string>
     <string name="udworkapply_text">工作申请</string>

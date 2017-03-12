@@ -99,6 +99,31 @@
     <!--工单-->
     <string name="work_cm">Failure Report WorkOrder</string>
     <string name="work_pm">Maintain Workorder</string>
+    <string name="work_wonum">Work Order:</string>
+    <string name="work_description">describe:</string>
+    <string name="work_worktype">Work Type:</string>
+    <string name="work_assetnum">Asset:</string>
+    <string name="work_assetdes">Asset description:</string>
+    <string name="work_stationdes">Station:</string>
+    <string name="work_location">Location:</string>
+    <string name="work_locationdes">Location description:</string>
+    <string name="work_udworeqnum">Work Request No.:</string>
+    <string name="work_udfaultreportnum">Failure ACT No.:</string>
+    <string name="work_udyearplannum">Yearly Plan No.:</string>
+    <string name="work_udstatus">Status:</string>
+    <string name="work_createbyname">Create By:</string>
+    <string name="work_createdate">Create Date:</string>
+    <string name="work_schedstart">Scheduled Start:</string>
+    <string name="work_schedfinish">Scheduled Finish:</string>
+    <string name="work_actstart">Actual Start:</string>
+    <string name="work_actfinish">Actual Finish:</string>
+    <string name="work_udyear">Year of Plan:</string>
+    <string name="work_workfrequency">Frequency:</string>
+    <string name="work_jpnum">Jop Plan:</string>
+    <string name="work_udworkscope">Work Scope:</string>
+    <string name="work_udfaultdesc">Failure Dexcription:</string>
+    <string name="work_udreason">Failure Reason:</string>
+    <string name="work_hazardlevel">Dates of Work:</string>
 
     <!--工作申请-->
     <string name="udfaultreport_text">Failure Report</string>

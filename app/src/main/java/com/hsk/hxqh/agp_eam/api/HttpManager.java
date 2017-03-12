@@ -233,6 +233,69 @@ public class HttpManager {
     }
 
     /**
+     * 设置工单查询*
+     */
+    public static String getWorkOrderUrl(String search,String type, int curpage, int showcount) {
+        if (search.equals("")) {
+            return "{'appid':'" + Constants.UDWOTRACK_APPID + "','objectname':'" + Constants.WORKORDER_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'WONUM desc','condition':{'WORKTYPE':'" + type + "'}}";
+        } else {
+            return "{'appid':'" + Constants.UDWOTRACK_APPID + "','objectname':'" + Constants.WORKORDER_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'WONUM desc','condition':{'WORKTYPE':'" + type + "'},'sinorsearch':{'WONUM':' "+ search + "','DESCRIPTION':'" + search + "'}}";
+        }
+    }
+
+    /**
+     * 设置工单任务查询*
+     */
+    public static String getWoactivityUrl(String wonum,String istask,int curpage, int showcount) {
+//        return "{'appid':'" + Constants.WOACTIVITY_APPID + "','objectname':'" + Constants.WOACTIVITY_NAME + "'," +
+//                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'PARENT':'" + wonum + "','istask':'" + istask + "'}}";
+        return "{'appid':'" + Constants.WOACTIVITY_APPID + "','objectname':'" + Constants.WOACTIVITY_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'}";
+    }
+
+    /**
+     * 设置工单计划物料查询*
+     */
+    public static String getWplaborLUrl(String wonum,String istask,int curpage, int showcount) {
+//        return "{'appid':'" + Constants.UDWOTRACK_APPID + "','objectname':'" + Constants.WPLABOR_NAME + "'," +
+//                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'PARENT':'" + wonum + "','istask':'" + istask + "'}}";
+        return "{'appid':'" + Constants.UDWOTRACK_APPID + "','objectname':'" + Constants.WPLABOR_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'}";
+    }
+
+    /**
+     * 设置工单计划物料查询*
+     */
+    public static String getWpmateriaLUrl(String wonum,String istask,int curpage, int showcount) {
+//        return "{'appid':'" + Constants.WPMATERIAL_NAME + "','objectname':'" + Constants.WPMATERIAL_NAME + "'," +
+//                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'PARENT':'" + wonum + "','istask':'" + istask + "'}}";
+        return "{'appid':'" + Constants.WPMATERIAL_NAME + "','objectname':'" + Constants.WPMATERIAL_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'}";
+    }
+
+    /**
+     * 设置工单实际员工查询*
+     */
+    public static String getLabtransUrl(String wonum,String istask,int curpage, int showcount) {
+//        return "{'appid':'" + Constants.UDWOTRACK_APPID + "','objectname':'" + Constants.LABTRANS_NAME + "'," +
+//                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'PARENT':'" + wonum + "','istask':'" + istask + "'}}";
+        return "{'appid':'" + Constants.UDWOTRACK_APPID + "','objectname':'" + Constants.LABTRANS_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'}";
+    }
+
+    /**
+     * 设置工单实际物料查询*
+     */
+    public static String getMatusetransUrl(String wonum,String istask,int curpage, int showcount) {
+//        return "{'appid':'" + Constants.MATUSETRANS_NAME + "','objectname':'" + Constants.MATUSETRANS_NAME + "'," +
+//                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'PARENT':'" + wonum + "','istask':'" + istask + "'}}";
+        return "{'appid':'" + Constants.MATUSETRANS_NAME + "','objectname':'" + Constants.MATUSETRANS_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read'}";
+    }
+
+    /**
      * 设置出差总结报告*
      */
     public static String getTripReportUrl(String search, int curpage, int showcount) {
