@@ -124,6 +124,56 @@
     <string name="work_udfaultdesc">Описание неисправности:</string>
     <string name="work_udreason">Причина неисправности:</string>
     <string name="work_hazardlevel">сроки выполнения работ:</string>
+
+    <string name="work_workplan">План работы</string>
+    <string name="work_workreal">Реальная ситуация</string>
+    <string name="work_workflow">Отправить процесса разработки</string>
+    <string name="work_upload">Загрузить приложение</string>
+
+    <string name="work_woactivity">Задача</string>
+    <string name="woactivity_taskid">Задача:</string>
+    <string name="woactivity_description">Сводка:</string>
+    <string name="woactivity_estdur">Оценка длительности:</string>
+    <string name="woactivity_status">Состояние:</string>
+    <string name="woactivity_wosequence">Последовательность:</string>
+
+    <string name="work_wplabor">Работники</string>
+    <string name="wplabor_taskid">Задача:</string>
+    <string name="wplabor_laborcode">Работники:</string>
+    <string name="wplabor_quantity">Количество:</string>
+
+    <string name="work_wpmaterial">мат</string>
+    <string name="wpmaterial_taskid">Операция:</string>
+    <string name="wpmaterial_itemnum">Позиция ТМЦ:</string>
+    <string name="wpmaterial_description">Сводка:</string>
+    <string name="wpmaterial_itemqty">Количество:</string>
+    <string name="wpmaterial_location">Склад:</string>
+    <string name="wpmaterial_vendor">Поставщик:</string>
+    <string name="wpmaterial_requestby">Кем затребовано:</string>
+    <string name="wpmaterial_requiredate">Необходимая дата:</string>
+
+    <string name="work_labtrans">Работники</string>
+    <string name="labtrans_actualstaskid">Операция:</string>
+    <string name="labtrans_laborcode">Работники:</string>
+    <string name="labtrans_startdate">Дата начала:</string>
+    <string name="labtrans_starttime">Время начала:</string>
+    <string name="labtrans_finishdate">Дата окончания:</string>
+    <string name="labtrans_finishtime">Время окончания:</string>
+    <string name="labtrans_regularhrs">Обычная трудоёмкость:</string>
+
+    <string name="work_matusetrans">мат</string>
+    <string name="matusetrans_actualstaskid">Операция:</string>
+    <string name="matusetrans_itemnum">Позиция ТМЦ:</string>
+    <string name="matusetrans_description">Сводка:</string>
+    <string name="matusetrans_storeloc">Склад:</string>
+    <string name="matusetrans_positivequantity">Количество:</string>
+    <string name="matusetrans_binnum">Ящик:</string>
+    <string name="matusetrans_lotnum">Лот:</string>
+    <string name="matusetrans_rotassetnum">Взаимозаменяемый актив:</string>
+    <string name="matusetrans_issuetype">Тип транзакции:</string>
+    <string name="matusetrans_enterby">Кем введено:</string>
+    <string name="matusetrans_actualdate">Фактическая дата:</string>
+
     <!--工作申请-->
     <string name="udfaultreport_text">Порядковый номер акта доклада</string>
     <string name="udworkapply_text">Порядковый номер рабочее</string>

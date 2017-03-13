@@ -125,6 +125,55 @@
     <string name="work_udreason">Failure Reason:</string>
     <string name="work_hazardlevel">Dates of Work:</string>
 
+    <string name="work_workplan">Work Plan</string>
+    <string name="work_workreal">The actual situation</string>
+    <string name="work_workflow">Send the workflow</string>
+    <string name="work_upload">To upload attachments</string>
+
+    <string name="work_woactivity">Task</string>
+    <string name="woactivity_taskid">Task:</string>
+    <string name="woactivity_description">Summary:</string>
+    <string name="woactivity_estdur">Estimated:</string>
+    <string name="woactivity_status">Status:</string>
+    <string name="woactivity_wosequence">Sequence:</string>
+
+    <string name="work_wplabor">Labor</string>
+    <string name="wplabor_taskid">Task:</string>
+    <string name="wplabor_laborcode">Labor:</string>
+    <string name="wplabor_quantity">Quantity:</string>
+
+    <string name="work_wpmaterial">Material</string>
+    <string name="wpmaterial_taskid">Task:</string>
+    <string name="wpmaterial_itemnum">Item:</string>
+    <string name="wpmaterial_description">Description:</string>
+    <string name="wpmaterial_itemqty">Quantity:</string>
+    <string name="wpmaterial_location">Storeroom:</string>
+    <string name="wpmaterial_vendor">Vendor:</string>
+    <string name="wpmaterial_requestby">Requested By:</string>
+    <string name="wpmaterial_requiredate">Required Date:</string>
+
+    <string name="work_labtrans">Labor</string>
+    <string name="labtrans_actualstaskid">Task:</string>
+    <string name="labtrans_laborcode">Labor:</string>
+    <string name="labtrans_startdate">Start Date:</string>
+    <string name="labtrans_starttime">Start Time:</string>
+    <string name="labtrans_finishdate">Finish Date:</string>
+    <string name="labtrans_finishtime">Finish Time:</string>
+    <string name="labtrans_regularhrs">Reqular Hours:</string>
+
+    <string name="work_matusetrans">Material</string>
+    <string name="matusetrans_actualstaskid">Task:</string>
+    <string name="matusetrans_itemnum">Item:</string>
+    <string name="matusetrans_description">Description:</string>
+    <string name="matusetrans_storeloc">Storeroom:</string>
+    <string name="matusetrans_positivequantity">Quantity:</string>
+    <string name="matusetrans_binnum">Bin:</string>
+    <string name="matusetrans_lotnum">Lot:</string>
+    <string name="matusetrans_rotassetnum">Rotating:</string>
+    <string name="matusetrans_issuetype">Transaction Type:</string>
+    <string name="matusetrans_enterby">Entered By:</string>
+    <string name="matusetrans_actualdate">Actual Date:</string>
+
     <!--工作申请-->
     <string name="udfaultreport_text">Failure Report</string>
     <string name="udworkapply_text">Work Request</string>
