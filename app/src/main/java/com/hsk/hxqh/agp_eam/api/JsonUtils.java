@@ -8,6 +8,8 @@ import com.hsk.hxqh.agp_eam.bean.Results;
 import com.hsk.hxqh.agp_eam.config.Constants;
 import com.hsk.hxqh.agp_eam.model.ASSET;
 import com.hsk.hxqh.agp_eam.model.ASSET_WORKORDER;
+import com.hsk.hxqh.agp_eam.model.INVBALANCES;
+import com.hsk.hxqh.agp_eam.model.INVENTORY;
 import com.hsk.hxqh.agp_eam.model.LABTRANS;
 import com.hsk.hxqh.agp_eam.model.MATUSETRANS;
 import com.hsk.hxqh.agp_eam.model.SPAREPART;
@@ -611,6 +613,102 @@ public class JsonUtils<E> {
 
                 }
                 list.add(matusetrans);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 库存*
+     */
+    public static ArrayList<INVENTORY> parsingINVENTORY(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<INVENTORY> list = null;
+        INVENTORY inventory = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<INVENTORY>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                inventory = new INVENTORY();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = inventory.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = inventory.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(inventory);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = inventory.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(inventory, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(inventory);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 库存*
+     */
+    public static ArrayList<INVBALANCES> parsingINVBALANCES(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<INVBALANCES> list = null;
+        INVBALANCES invbalances = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<INVBALANCES>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                invbalances = new INVBALANCES();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = invbalances.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = invbalances.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(invbalances);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = invbalances.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(invbalances, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(invbalances);
             }
             return list;
         } catch (JSONException e) {

@@ -174,6 +174,27 @@
     <string name="matusetrans_enterby">Кем введено:</string>
     <string name="matusetrans_actualdate">Фактическая дата:</string>
 
+    <!--库存-->
+    <string name="inventory">запас</string>
+    <string name="inventory_itemnum">проект:</string>
+    <string name="inventory_itemnum_dec">Описание проекта:</string>
+    <string name="inventory_location">пакгауз:</string>
+    <string name="inventory_location_dec">Склад описание:</string>
+    <string name="inventory_status">состояние:</string>
+    <string name="inventory_issueunit">Выдача единица:</string>
+    <string name="inventory_curbaltotal">В запас:</string>
+    <string name="inventory_avblbalance">Может дозировку:</string>
+
+    <string name="invbalances">Запас запас</string>
+    <string name="invbalances_binnum">контейнерный:</string>
+    <string name="invbalances_lotnum">партия:</string>
+    <string name="invbalances_curbal">В запас:</string>
+    <string name="invbalances_stagedcurbal">Временное запас:</string>
+    <string name="invbalances_physcnt">Фактически количество:</string>
+    <string name="invbalances_physcntdate">Фактически инвентаризация дата:</string>
+    <string name="invbalances_reconciled">на?</string>
+
+
     <!--工作申请-->
     <string name="udfaultreport_text">Порядковый номер акта доклада</string>
     <string name="udworkapply_text">Порядковый номер рабочее</string>

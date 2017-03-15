@@ -113,6 +113,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/AGP.ActivityTheme" />
         <activity
+            android:name=".ui.activity.InventoryDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.Inventory_InvbalancesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.InvbalancesDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
             android:name=".ui.activity.UdworkapplyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AGP.ActivityTheme" />

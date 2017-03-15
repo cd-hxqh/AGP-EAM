@@ -99,6 +99,13 @@ public class Constants {
     //物资编码表名
     public static final String ITEM_NAME = "ITEM";
 
+    //库存appid
+    public static final String INVENTORY_APPID = "INVENTORY";
+    //库存表名
+    public static final String INVENTORY_NAME = "INVENTORY";
+    //库存余量表名
+    public static final String INVBALANCES_NAME = "INVBALANCES";
+
 
     /**
      * 工程台账*

@@ -191,6 +191,27 @@
     <string name="matusetrans_actualdate">实际日期:</string>
 
 
+    <!--库存-->
+    <string name="inventory">库存</string>
+    <string name="inventory_itemnum">项目:</string>
+    <string name="inventory_itemnum_dec">描述:</string>
+    <string name="inventory_location">库房:</string>
+    <string name="inventory_location_dec">库房描述:</string>
+    <string name="inventory_status">状态:</string>
+    <string name="inventory_issueunit">发放单位:</string>
+    <string name="inventory_curbaltotal">当前余量:</string>
+    <string name="inventory_avblbalance">可用量:</string>
+    
+    <string name="invbalances">库存余量</string>
+    <string name="invbalances_binnum">货柜:</string>
+    <string name="invbalances_lotnum">批次:</string>
+    <string name="invbalances_curbal">当前余量:</string>
+    <string name="invbalances_stagedcurbal">暂存余量:</string>
+    <string name="invbalances_physcnt">实际库存量:</string>
+    <string name="invbalances_physcntdate">实际盘点日期:</string>
+    <string name="invbalances_reconciled">已调整?</string>
+
+
     <!--工作申请-->
     <string name="udfaultreport_text">故障提报</string>
     <string name="udworkapply_text">工作申请</string>

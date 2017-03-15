@@ -296,6 +296,27 @@ public class HttpManager {
     }
 
     /**
+     * 设置库存查询*
+     */
+    public static String getInventoryUrl(String search, int curpage, int showcount) {
+        if (search.equals("")) {
+            return "{'appid':'" + Constants.INVENTORY_APPID + "','objectname':'" + Constants.INVENTORY_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ITEMNUM desc'}";
+        } else {
+            return "{'appid':'" + Constants.INVENTORY_APPID + "','objectname':'" + Constants.INVENTORY_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ITEMNUM desc','sinorsearch':{'ITEMNUM':' "+ search + "','ITEMNUM_DEC':'" + search + "'}}";
+        }
+    }
+
+    /**
+     * 设置库存余量查询*
+     */
+    public static String getInvbalancesUrl(String itemnum,String location,int curpage, int showcount) {
+        return "{'appid':'" + Constants.INVENTORY_APPID + "','objectname':'" + Constants.INVBALANCES_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'itemnum':'" + itemnum + "','location':'" + location + "'}}";
+    }
+
+    /**
      * 设置出差总结报告*
      */
     public static String getTripReportUrl(String search, int curpage, int showcount) {
