@@ -25,7 +25,6 @@ import android.widget.TextView;
 
 import com.hsk.hxqh.agp_eam.R;
 import com.hsk.hxqh.agp_eam.adpter.BaseQuickAdapter;
-import com.hsk.hxqh.agp_eam.adpter.WplaborAdapter;
 import com.hsk.hxqh.agp_eam.adpter.WpmaterialAdapter;
 import com.hsk.hxqh.agp_eam.api.HttpManager;
 import com.hsk.hxqh.agp_eam.api.HttpRequestHandler;
@@ -33,7 +32,6 @@ import com.hsk.hxqh.agp_eam.api.JsonUtils;
 import com.hsk.hxqh.agp_eam.bean.Results;
 import com.hsk.hxqh.agp_eam.model.WORKORDER;
 import com.hsk.hxqh.agp_eam.model.WPMATERIAL;
-import com.hsk.hxqh.agp_eam.ui.activity.AssetDetailsActivity;
 import com.hsk.hxqh.agp_eam.ui.activity.WpmaterialDetailsActivity;
 import com.hsk.hxqh.agp_eam.ui.widget.SwipeRefreshLayout;
 
@@ -158,7 +156,7 @@ public class WpmaterialFragment extends Fragment implements SwipeRefreshLayout.O
 
 
     private void setSearchEdit() {
-        SpannableString msp = new SpannableString("XX搜索");
+        SpannableString msp = new SpannableString(getString(R.string.search_text));
         Drawable drawable = getResources().getDrawable(R.drawable.ic_search);
         msp.setSpan(new ImageSpan(drawable), 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());

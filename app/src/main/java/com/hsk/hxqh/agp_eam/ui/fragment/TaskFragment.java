@@ -22,7 +22,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hsk.hxqh.agp_eam.R;
-import com.hsk.hxqh.agp_eam.adpter.AssetAdapter;
 import com.hsk.hxqh.agp_eam.adpter.BaseQuickAdapter;
 import com.hsk.hxqh.agp_eam.adpter.WfassignmentAdapter;
 import com.hsk.hxqh.agp_eam.api.HttpManager;
@@ -30,7 +29,6 @@ import com.hsk.hxqh.agp_eam.api.HttpRequestHandler;
 import com.hsk.hxqh.agp_eam.api.JsonUtils;
 import com.hsk.hxqh.agp_eam.bean.Results;
 import com.hsk.hxqh.agp_eam.model.WFASSIGNMENT;
-import com.hsk.hxqh.agp_eam.ui.activity.AssetDetailsActivity;
 import com.hsk.hxqh.agp_eam.ui.activity.Wfm_Details_Activity;
 import com.hsk.hxqh.agp_eam.ui.widget.SwipeRefreshLayout;
 import com.hsk.hxqh.agp_eam.unit.AccountUtils;
@@ -149,7 +147,7 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
 
     private void setSearchEdit() {
-        SpannableString msp = new SpannableString("XX搜索");
+        SpannableString msp = new SpannableString(getString(R.string.search_text));
         Drawable drawable = getResources().getDrawable(R.drawable.ic_search);
         msp.setSpan(new ImageSpan(drawable), 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());

@@ -38,6 +38,24 @@
     <string name="login_loging">Пожалуйста,  посадка  в  позже  ...</string>
 
 
+    <!--网络信息提示-->
+    <string name="error_title">ошибки</string>
+    <string name="error_obtain_once">Отсутствие доступа к ONCE</string>
+    <string name="error_network_exception">Сетевой трафик аномалия, пожалуйста, потом снова пробовать</string>
+    <string name="error_network_disconnect">Сеть недостижимое, пожалуйста, открытие wi-fi или мобильных сетей передачи данных</string>
+    <string name="error_reply">сбойные</string>
+    <string name="error_create_topic">Невозможно создать новую тему</string>
+    <string name="error_login">Не в</string>
+    <string name="error_fav_nodes">Ошибка узла коллекции</string>
+    <string name="error_fav_topic">Коллекции тему ошибки</string>
+    <string name="error_get_profile">Отсутствие доступа к пользователей персональных данных</string>
+    <string name="error_unknown">Неизвестный ошибки</string>
+    <string name="load">В настоящее время загрузки</string>
+    <string name="load1">Пока отсутствуют</string>
+    <string name="have_not_data_txt">Пока без соответствующих данных</string>
+    <string name="loading">В настоящее время загрузки … в</string>
+
+
     <!--获取信息提示-->
     <string name="item_num_title">номер:</string>
     <string name="item_desc_title">описание:</string>
@@ -60,6 +78,8 @@
 
     <!--退出程序-->
     <string name="exit_text">нажмите  один раз  выйти из программы</string>
+    <!--搜索-->
+    <string name="search_text">XX поиск</string>
 
     <!--流程审批-->
     <string name="title_activity_wfm"> Процесс утверждения</string>

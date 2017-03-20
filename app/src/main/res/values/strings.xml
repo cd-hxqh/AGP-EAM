@@ -78,7 +78,8 @@
 
     <!--退出程序-->
     <string name="exit_text">再按一次退出程序</string>
-
+    <!--搜索-->
+    <string name="search_text">XX搜索</string>
 
     <!--流程审批-->
     <string name="title_activity_wfm"> 流程审批</string>
@@ -257,4 +258,5 @@
     <string name="startdate_text">开始时间:</string>
     <string name="workdates_text">工期:</string>
     <string name="jpnum_text">作业计划编号:</string>
+
 </resources>

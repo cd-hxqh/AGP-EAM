@@ -144,7 +144,7 @@ public class AssetFragment extends BaseFragment implements SwipeRefreshLayout.On
 
 
     private void setSearchEdit() {
-        SpannableString msp = new SpannableString("XX搜索");
+        SpannableString msp = new SpannableString(getString(R.string.search_text));
         Drawable drawable = getResources().getDrawable(R.drawable.ic_search);
         msp.setSpan(new ImageSpan(drawable), 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());

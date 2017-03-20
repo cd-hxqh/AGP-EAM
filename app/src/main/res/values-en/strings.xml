@@ -37,6 +37,23 @@
     <string name="login_error_empty_passwd">Password cannot be empty</string>
     <string name="login_loging">Please log in later...</string>
 
+    <!--网络信息提示-->
+    <string name="error_title">error</string>
+    <string name="error_obtain_once">Unable to get ONCE</string>
+    <string name="error_network_exception">Network communication is unusual, please try again later</string>
+    <string name="error_network_disconnect">Network inaccessible, please open the Wifi or mobile data network</string>
+    <string name="error_reply">Submit Failure</string>
+    <string name="error_create_topic">Unable to create a new topic</string>
+    <string name="error_login">Unable to log in</string>
+    <string name="error_fav_nodes">Collection node error</string>
+    <string name="error_fav_topic">Collect topic error</string>
+    <string name="error_get_profile">Unable to get the user personal information</string>
+    <string name="error_unknown">Unknown Error</string>
+    <string name="load">Loading...</string>
+    <string name="load1">No data</string>
+    <string name="have_not_data_txt">No related data</string>
+    <string name="loading">Loading…</string>
+
     <!--获取信息提示-->
     <string name="item_num_title">Number:</string>
     <string name="item_desc_title">Description:</string>
@@ -62,6 +79,8 @@
 
     <!--退出程序-->
     <string name="exit_text">Press the exit procedure again</string>
+    <!--搜索-->
+    <string name="search_text">XX Search</string>
 
     <!--流程审批-->
     <string name="title_activity_wfm"> The process of examination and approval</string>

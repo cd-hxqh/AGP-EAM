@@ -75,6 +75,8 @@
 
     <!--退出程序-->
     <string name="exit_text">再按一次退出程序</string>
+    <!--搜索-->
+    <string name="search_text">XX搜索</string>
 
     <!--资产-->
     <string name="asset_title">资产详情</string>
