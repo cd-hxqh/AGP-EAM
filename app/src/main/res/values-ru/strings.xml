@@ -61,6 +61,17 @@
     <!--退出程序-->
     <string name="exit_text">нажмите  один раз  выйти из программы</string>
 
+    <!--流程审批-->
+    <string name="title_activity_wfm"> Процесс утверждения</string>
+    <string name="wfm_app_title">Процесс утверждения из:</string>
+    <string name="wfm_desc_title">Описание:</string>
+    <string name="wfm_ownertable_title">Имя таблицы:</string>
+    <string name="wfm_assigncode_title">Задания человек:</string>
+    <string name="wfm_duedate_title">Дата окончания:</string>
+    <string name="wfm_processname_title">Процесс имен:</string>
+    <string name="wfm_roleid_title">Задач ролей:</string>
+    <string name="wfm_startdate_title">Начало процесса дата:</string>
+
 
     <!--资产-->
     <string name="asset_title">Активдетали</string>

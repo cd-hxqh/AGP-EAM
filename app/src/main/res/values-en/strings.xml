@@ -63,6 +63,17 @@
     <!--退出程序-->
     <string name="exit_text">Press the exit procedure again</string>
 
+    <!--流程审批-->
+    <string name="title_activity_wfm"> The process of examination and approval</string>
+    <string name="wfm_app_title">APP:</string>
+    <string name="wfm_desc_title">Description:</string>
+    <string name="wfm_ownertable_title">TableName:</string>
+    <string name="wfm_assigncode_title">Task allocation people:</string>
+    <string name="wfm_duedate_title">Due Date:</string>
+    <string name="wfm_processname_title">Processname:</string>
+    <string name="wfm_roleid_title">Roleid:</string>
+    <string name="wfm_startdate_title">Start Date:</string>
+
     <!--资产-->
     <string name="asset_title">Asset details</string>
     <string name="asset_assetnum">Assets:</string>
