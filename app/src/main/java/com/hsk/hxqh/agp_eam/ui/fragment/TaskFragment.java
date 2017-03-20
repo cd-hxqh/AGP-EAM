@@ -24,13 +24,16 @@ import android.widget.TextView;
 import com.hsk.hxqh.agp_eam.R;
 import com.hsk.hxqh.agp_eam.adpter.AssetAdapter;
 import com.hsk.hxqh.agp_eam.adpter.BaseQuickAdapter;
+import com.hsk.hxqh.agp_eam.adpter.WfassignmentAdapter;
 import com.hsk.hxqh.agp_eam.api.HttpManager;
 import com.hsk.hxqh.agp_eam.api.HttpRequestHandler;
 import com.hsk.hxqh.agp_eam.api.JsonUtils;
 import com.hsk.hxqh.agp_eam.bean.Results;
-import com.hsk.hxqh.agp_eam.model.ASSET;
+import com.hsk.hxqh.agp_eam.model.WFASSIGNMENT;
 import com.hsk.hxqh.agp_eam.ui.activity.AssetDetailsActivity;
+import com.hsk.hxqh.agp_eam.ui.activity.Wfm_Details_Activity;
 import com.hsk.hxqh.agp_eam.ui.widget.SwipeRefreshLayout;
+import com.hsk.hxqh.agp_eam.unit.AccountUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +45,7 @@ import java.util.List;
  */
 
 public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, SwipeRefreshLayout.OnLoadListener{
-    private static final String TAG = "AssetFragment";
+    private static final String TAG = "TaskFragment";
     LinearLayoutManager layoutManager;
     /**
      * RecyclerView*
@@ -59,7 +62,7 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     /**
      * 适配器*
      */
-    private AssetAdapter assetAdapter;
+    private WfassignmentAdapter wfassignmentAdapter;
     /**
      * 编辑框*
      */
@@ -71,7 +74,7 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     private int page = 1;
 
 
-    ArrayList<ASSET> items = new ArrayList<ASSET>();
+    ArrayList<WFASSIGNMENT> items = new ArrayList<WFASSIGNMENT>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,7 +130,7 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     public void onStart() {
         super.onStart();
         refresh_layout.setRefreshing(true);
-        initAdapter(new ArrayList<ASSET>());
+        initAdapter(new ArrayList<WFASSIGNMENT>());
         items = new ArrayList<>();
         getData(searchText);
     }
@@ -163,8 +166,8 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                                             .getWindowToken(),
                                     InputMethodManager.HIDE_NOT_ALWAYS);
                     searchText = search.getText().toString();
-                    assetAdapter.removeAll(items);
-                    items = new ArrayList<ASSET>();
+                    wfassignmentAdapter.removeAll(items);
+                    items = new ArrayList<WFASSIGNMENT>();
                     nodatalayout.setVisibility(View.GONE);
                     refresh_layout.setRefreshing(true);
                     page = 1;
@@ -181,7 +184,7 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
      * 获取数据*
      */
     private void getData(String search) {
-        HttpManager.getDataPagingInfo(getActivity(), HttpManager.getAssetUrl(search, page, 20), new HttpRequestHandler<Results>() {
+        HttpManager.getDataPagingInfo(getActivity(), HttpManager.getwfassignmentUrl(AccountUtils.getpersonId(getActivity()),search, page, 20), new HttpRequestHandler<Results>() {
             @Override
             public void onSuccess(Results results) {
                 Log.i(TAG, "data=" + results);
@@ -189,7 +192,7 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
             @Override
             public void onSuccess(Results results, int totalPages, int currentPage) {
-                ArrayList<ASSET> item = JsonUtils.parsingAsset(getActivity(), results.getResultlist());
+                ArrayList<WFASSIGNMENT> item = JsonUtils.parsingWFASSIGNMENT(getActivity(), results.getResultlist());
                 refresh_layout.setRefreshing(false);
                 refresh_layout.setLoading(false);
                 if (item == null || item.isEmpty()) {
@@ -198,7 +201,7 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
                     if (item != null || item.size() != 0) {
                         if (page == 1) {
-                            items = new ArrayList<ASSET>();
+                            items = new ArrayList<WFASSIGNMENT>();
                             initAdapter(items);
                         }
                         for (int i = 0; i < item.size(); i++) {
@@ -225,15 +228,15 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     /**
      * 获取数据*
      */
-    private void initAdapter(final List<ASSET> list) {
-        assetAdapter = new AssetAdapter(getActivity(), R.layout.list_item_asset, list);
-        recyclerView.setAdapter(assetAdapter);
-        assetAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
+    private void initAdapter(final List<WFASSIGNMENT> list) {
+        wfassignmentAdapter = new WfassignmentAdapter(getActivity(), R.layout.list_item_wfassignment, list);
+        recyclerView.setAdapter(wfassignmentAdapter);
+        wfassignmentAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent = new Intent(getActivity(), AssetDetailsActivity.class);
+                Intent intent = new Intent(getActivity(), Wfm_Details_Activity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("asset", items.get(position));
+                bundle.putSerializable("wfassignment", items.get(position));
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 0);
             }
@@ -243,8 +246,8 @@ public class TaskFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     /**
      * 添加数据*
      */
-    private void addData(final List<ASSET> list) {
-        assetAdapter.addData(list);
+    private void addData(final List<WFASSIGNMENT> list) {
+        wfassignmentAdapter.addData(list);
     }
 
 }

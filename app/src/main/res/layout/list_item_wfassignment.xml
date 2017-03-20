@@ -36,7 +36,7 @@
                 android:id="@+id/item_desc_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/asset_desc"
+                android:text="@string/wfm_desc_title"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -53,23 +53,23 @@
 
 
             <TextView
-                android:id="@+id/item_location_title"
+                android:id="@+id/wfm_assigncode_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/item_desc_title"
                 android:layout_marginTop="5dp"
-                android:text="@string/asset_location"
+                android:text="@string/wfm_assigncode_title"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/item_location_text"
+                android:id="@+id/wfm_assigncode_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/item_desc_text"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_toRightOf="@+id/item_location_title"
+                android:layout_toRightOf="@+id/wfm_assigncode_title"
                 android:ellipsize="end"
                 android:ems="14"
                 android:hint="@string/have_not_data"
@@ -77,23 +77,23 @@
                 android:textSize="16sp"
                 android:maxLines="1" />
             <TextView
-                android:id="@+id/item_locdesc_title"
+                android:id="@+id/wfm_startdate_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_location_title"
+                android:layout_below="@+id/wfm_assigncode_title"
                 android:layout_marginTop="5dp"
-                android:text="@string/asset_locdesc"
+                android:text="@string/wfm_startdate_title"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/item_locdesc_text"
+                android:id="@+id/wfm_startdate_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_location_text"
+                android:layout_below="@+id/wfm_assigncode_text"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_toRightOf="@+id/item_desc_title"
+                android:layout_toRightOf="@+id/wfm_startdate_title"
                 android:ellipsize="end"
                 android:ems="14"
                 android:hint="@string/have_not_data"
@@ -101,30 +101,6 @@
                 android:textSize="16sp"
                 android:maxLines="1" />
 
-            <TextView
-                android:id="@+id/item_udmodule_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/item_locdesc_title"
-                android:layout_marginTop="5dp"
-                android:text="@string/asset_udmodule"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/item_udmodule_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/item_locdesc_text"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@+id/item_desc_title"
-                android:ellipsize="end"
-                android:ems="14"
-                android:hint="@string/have_not_data"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:maxLines="1" />
 
         </RelativeLayout>
 

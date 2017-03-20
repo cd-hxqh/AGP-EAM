@@ -172,30 +172,30 @@
         </RelativeLayout>
 
 
-        <RelativeLayout
-            android:id="@+id/po_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/size_50dp"
-            android:padding="@dimen/size_10dp">
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/po_layout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingLeft="@dimen/size_50dp"-->
+            <!--android:padding="@dimen/size_10dp">-->
 
-            <ImageView
-                android:id="@+id/six"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_po" />
+            <!--<ImageView-->
+                <!--android:id="@+id/six"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:src="@drawable/ic_po" />-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/size_20dp"
-                android:layout_toRightOf="@id/six"
-                android:text="@string/po_text"
-                android:textColor="@color/gray_1"
-                android:textSize="@dimen/size_20sp" />
-        </RelativeLayout>
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="@dimen/size_20dp"-->
+                <!--android:layout_toRightOf="@id/six"-->
+                <!--android:text="@string/po_text"-->
+                <!--android:textColor="@color/gray_1"-->
+                <!--android:textSize="@dimen/size_20sp" />-->
+        <!--</RelativeLayout>-->
     </LinearLayout>
 
 </LinearLayout>

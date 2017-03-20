@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity {
     private RelativeLayout UdworkapplyLayout;//工作申请
     private RelativeLayout WorkOrderLayout;//工单管理
     private RelativeLayout KuCunLayout;//库存管理
-    private RelativeLayout PoLayout;//采购管理
+//    private RelativeLayout PoLayout;//采购管理
 
     private TaskFragment taskFragment;
     private AssetFragment assetFragment;
@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity {
         UdworkapplyLayout = (RelativeLayout) findViewById(R.id.udworkapply_layout);
         WorkOrderLayout = (RelativeLayout) findViewById(R.id.workorder_layout);
         KuCunLayout = (RelativeLayout) findViewById(R.id.kucun_layout);
-        PoLayout = (RelativeLayout) findViewById(R.id.po_layout);
+//        PoLayout = (RelativeLayout) findViewById(R.id.po_layout);
     }
 
     protected void initView() {
@@ -75,7 +75,10 @@ public class MainActivity extends BaseActivity {
         UdworkapplyLayout.setOnClickListener(new layoutClickListener(2));
         WorkOrderLayout.setOnClickListener(new layoutClickListener(3));
         KuCunLayout.setOnClickListener(new layoutClickListener(4));
-        PoLayout.setOnClickListener(new layoutClickListener(5));
+//        PoLayout.setOnClickListener(new layoutClickListener(5));
+
+        TaskLayout.performClick();
+        mMenu.toggle();
     }
 
 
@@ -145,16 +148,16 @@ public class MainActivity extends BaseActivity {
                     menutitle.setText(R.string.inventory_text);
                     mMenu.toggle();
                     break;
-                case 5://采购管理
-                    if (poFragment == null) {
-                        poFragment = new PoFragment();
-                        Bundle bundle = new Bundle();
-                        poFragment.setArguments(bundle);
-                    }
-                    fragmentTransaction.replace(R.id.container, poFragment).commit();
-                    menutitle.setText(R.string.po_text);
-                    mMenu.toggle();
-                    break;
+//                case 5://采购管理
+//                    if (poFragment == null) {
+//                        poFragment = new PoFragment();
+//                        Bundle bundle = new Bundle();
+//                        poFragment.setArguments(bundle);
+//                    }
+//                    fragmentTransaction.replace(R.id.container, poFragment).commit();
+//                    menutitle.setText(R.string.po_text);
+//                    mMenu.toggle();
+//                    break;
             }
         }
     }
@@ -192,7 +195,7 @@ public class MainActivity extends BaseActivity {
                 UdworkapplyLayout.setBackgroundResource(R.color.white);
                 WorkOrderLayout.setBackgroundResource(R.color.white);
                 KuCunLayout.setBackgroundResource(R.color.white);
-                PoLayout.setBackgroundResource(R.color.white);
+//                PoLayout.setBackgroundResource(R.color.white);
                 break;
             case 1:
                 TaskLayout.setBackgroundResource(R.color.white);
@@ -200,7 +203,7 @@ public class MainActivity extends BaseActivity {
                 UdworkapplyLayout.setBackgroundResource(R.color.white);
                 WorkOrderLayout.setBackgroundResource(R.color.white);
                 KuCunLayout.setBackgroundResource(R.color.white);
-                PoLayout.setBackgroundResource(R.color.white);
+//                PoLayout.setBackgroundResource(R.color.white);
                 break;
             case 2:
                 TaskLayout.setBackgroundResource(R.color.white);
@@ -208,7 +211,7 @@ public class MainActivity extends BaseActivity {
                 UdworkapplyLayout.setBackgroundResource(R.color.light_blue);
                 WorkOrderLayout.setBackgroundResource(R.color.white);
                 KuCunLayout.setBackgroundResource(R.color.white);
-                PoLayout.setBackgroundResource(R.color.white);
+//                PoLayout.setBackgroundResource(R.color.white);
                 break;
             case 3:
                 TaskLayout.setBackgroundResource(R.color.white);
@@ -216,7 +219,7 @@ public class MainActivity extends BaseActivity {
                 UdworkapplyLayout.setBackgroundResource(R.color.white);
                 WorkOrderLayout.setBackgroundResource(R.color.light_blue);
                 KuCunLayout.setBackgroundResource(R.color.white);
-                PoLayout.setBackgroundResource(R.color.white);
+//                PoLayout.setBackgroundResource(R.color.white);
                 break;
             case 4:
                 TaskLayout.setBackgroundResource(R.color.white);
@@ -224,16 +227,16 @@ public class MainActivity extends BaseActivity {
                 UdworkapplyLayout.setBackgroundResource(R.color.white);
                 WorkOrderLayout.setBackgroundResource(R.color.white);
                 KuCunLayout.setBackgroundResource(R.color.light_blue);
-                PoLayout.setBackgroundResource(R.color.white);
+//                PoLayout.setBackgroundResource(R.color.white);
                 break;
-            case 5:
-                TaskLayout.setBackgroundResource(R.color.white);
-                AssetLayout.setBackgroundResource(R.color.white);
-                UdworkapplyLayout.setBackgroundResource(R.color.white);
-                WorkOrderLayout.setBackgroundResource(R.color.white);
-                KuCunLayout.setBackgroundResource(R.color.white);
-                PoLayout.setBackgroundResource(R.color.light_blue);
-                break;
+//            case 5:
+//                TaskLayout.setBackgroundResource(R.color.white);
+//                AssetLayout.setBackgroundResource(R.color.white);
+//                UdworkapplyLayout.setBackgroundResource(R.color.white);
+//                WorkOrderLayout.setBackgroundResource(R.color.white);
+//                KuCunLayout.setBackgroundResource(R.color.white);
+//                PoLayout.setBackgroundResource(R.color.light_blue);
+//                break;
         }
     }
 }

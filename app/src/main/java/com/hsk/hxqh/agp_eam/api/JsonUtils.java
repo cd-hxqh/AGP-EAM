@@ -13,6 +13,7 @@ import com.hsk.hxqh.agp_eam.model.INVENTORY;
 import com.hsk.hxqh.agp_eam.model.LABTRANS;
 import com.hsk.hxqh.agp_eam.model.MATUSETRANS;
 import com.hsk.hxqh.agp_eam.model.SPAREPART;
+import com.hsk.hxqh.agp_eam.model.WFASSIGNMENT;
 import com.hsk.hxqh.agp_eam.model.WOACTIVITY;
 import com.hsk.hxqh.agp_eam.model.WORKORDER;
 import com.hsk.hxqh.agp_eam.model.UDFAULTREPORT;
@@ -183,6 +184,56 @@ public class JsonUtils<E> {
 //        return webResult;
 //    }
 //
+
+    /**
+     * 待办任务*
+     */
+    public static ArrayList<WFASSIGNMENT> parsingWFASSIGNMENT(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<WFASSIGNMENT> list = null;
+        WFASSIGNMENT wfassignment = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<WFASSIGNMENT>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                wfassignment = new WFASSIGNMENT();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = wfassignment.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = wfassignment.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(wfassignment);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = wfassignment.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(wfassignment, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(wfassignment);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
     /**
      * 资产*
      */
