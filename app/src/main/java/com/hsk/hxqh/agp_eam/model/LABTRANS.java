@@ -16,6 +16,7 @@ public class LABTRANS implements Serializable {
     public String FINISHDATE;//结束日期
     public String FINISHTIME;//结束时间
     public String REGULARHRS;//常规时数
+    public String TYPE;
 
     public String getLABORNAME() {
         return LABORNAME;
@@ -79,5 +80,13 @@ public class LABTRANS implements Serializable {
 
     public void setFINISHTIME(String FINISHTIME) {
         this.FINISHTIME = FINISHTIME;
+    }
+
+    public String getTYPE() {
+        return TYPE;
+    }
+
+    public void setTYPE(String TYPE) {
+        this.TYPE = TYPE;
     }
 }

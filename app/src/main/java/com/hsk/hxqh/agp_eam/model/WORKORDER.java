@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 
 public class WORKORDER implements Serializable {
+    public String WORKORDERID;
     public String WONUM;//工单
     public String DESCRIPTION;//描述
     public String WORKTYPE;//工单类型
@@ -33,6 +34,14 @@ public class WORKORDER implements Serializable {
     public String UDREASON;//故障原因
     public String HAZARDLEVEL;//工期
     public String UDSTATIONNUM;//
+
+    public String getWORKORDERID() {
+        return WORKORDERID;
+    }
+
+    public void setWORKORDERID(String WORKORDERID) {
+        this.WORKORDERID = WORKORDERID;
+    }
 
     public String getWONUM() {
         return WONUM;

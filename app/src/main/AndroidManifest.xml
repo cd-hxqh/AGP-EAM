@@ -136,6 +136,50 @@
             android:name=".ui.activity.UdworkapplyDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.option.Asset_chooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.option.Location_chooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.option.Udyearplan_chooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.option.Jobplan_chooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.option.Person_chooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.option.Craftrate_chooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.option.Companies_chooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.UdfaultreportAddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.UdworkapplyAddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.PhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
+        <activity
+            android:name=".ui.activity.WxDemoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AGP.ActivityTheme" />
     </application>
 
 </manifest>

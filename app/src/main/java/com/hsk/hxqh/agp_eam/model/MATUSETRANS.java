@@ -19,6 +19,7 @@ public class MATUSETRANS implements Serializable {
     public String ISSUETYPE;//交易类型
     public String ENTERBY;//输入人
     public String ACTUALDATE;//实际日期
+    public String TYPE;
 
     public String getACTUALSTASKID() {
         return ACTUALSTASKID;
@@ -106,5 +107,13 @@ public class MATUSETRANS implements Serializable {
 
     public void setACTUALDATE(String ACTUALDATE) {
         this.ACTUALDATE = ACTUALDATE;
+    }
+
+    public String getTYPE() {
+        return TYPE;
+    }
+
+    public void setTYPE(String TYPE) {
+        this.TYPE = TYPE;
     }
 }

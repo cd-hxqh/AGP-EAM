@@ -29,6 +29,7 @@ import com.hsk.hxqh.agp_eam.api.JsonUtils;
 import com.hsk.hxqh.agp_eam.bean.Results;
 import com.hsk.hxqh.agp_eam.model.UDFAULTREPORT;
 import com.hsk.hxqh.agp_eam.ui.widget.SwipeRefreshLayout;
+import com.j256.ormlite.stmt.query.In;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,7 @@ public class UdfaultreportActivity extends BaseActivity implements SwipeRefreshL
      * 标题
      **/
     private TextView titleTextView;
+    private ImageView addImg;
 
 
     LinearLayoutManager layoutManager;
@@ -95,6 +97,7 @@ public class UdfaultreportActivity extends BaseActivity implements SwipeRefreshL
     protected void findViewById() {
         backImageView = (ImageView) findViewById(R.id.menu_id);
         titleTextView = (TextView) findViewById(R.id.menu_title);
+        addImg = (ImageView) findViewById(R.id.title_more);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_id);
         refresh_layout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         nodatalayout = (LinearLayout) findViewById(R.id.have_not_data_id);
@@ -109,6 +112,9 @@ public class UdfaultreportActivity extends BaseActivity implements SwipeRefreshL
         backImageView.setOnClickListener(backImageViewOnClickListener);
         backImageView.setBackgroundResource(R.drawable.ic_back);
         titleTextView.setText(R.string.udfaultreport_text);
+        addImg.setBackgroundResource(R.drawable.ic_add);
+        addImg.setVisibility(View.VISIBLE);
+        addImg.setOnClickListener(addOnClickListener);
 
         setSearchEdit();
 
@@ -134,6 +140,14 @@ public class UdfaultreportActivity extends BaseActivity implements SwipeRefreshL
         @Override
         public void onClick(View view) {
             finish();
+        }
+    };
+
+    private View.OnClickListener addOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(UdfaultreportActivity.this,UdfaultreportAddActivity.class);
+            startActivity(intent);
         }
     };
 

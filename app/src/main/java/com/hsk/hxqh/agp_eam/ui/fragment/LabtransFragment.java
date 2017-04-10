@@ -244,6 +244,8 @@ public class LabtransFragment extends Fragment implements SwipeRefreshLayout.OnR
                 Intent intent = new Intent(getActivity(), LabtransDetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("labtrans", items.get(position));
+                bundle.putSerializable("workorder", workorder);
+                bundle.putSerializable("labtranses", items);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 0);
             }

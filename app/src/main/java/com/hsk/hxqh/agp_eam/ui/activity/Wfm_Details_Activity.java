@@ -12,8 +12,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.flyco.animation.BaseAnimatorSet;
+import com.flyco.animation.BounceEnter.BounceTopEnter;
+import com.flyco.animation.SlideExit.SlideBottomExit;
+import com.flyco.dialog.listener.OnBtnEditClickL;
+import com.flyco.dialog.widget.NormalEditTextDialog;
 import com.hsk.hxqh.agp_eam.R;
 import com.hsk.hxqh.agp_eam.model.WFASSIGNMENT;
+import com.hsk.hxqh.agp_eam.model.WebResult;
+import com.hsk.hxqh.agp_eam.unit.AccountUtils;
+import com.hsk.hxqh.agp_eam.webserviceclient.AndroidClientService;
 
 import java.util.ArrayList;
 
@@ -33,8 +41,8 @@ public class Wfm_Details_Activity extends BaseActivity {
      */
     private ImageView backImageView;
 
-//    private BaseAnimatorSet mBasIn;
-//    private BaseAnimatorSet mBasOut;
+    private BaseAnimatorSet mBasIn;
+    private BaseAnimatorSet mBasOut;
 
     /**
      * 界面信息显示*
@@ -86,7 +94,7 @@ public class Wfm_Details_Activity extends BaseActivity {
         startdateText = (TextView) findViewById(R.id.wfm_startdate_text);
 //        details = (Button) findViewById(R.id.details);
 //        detailslayout = (LinearLayout) findViewById(R.id.details_layout);
-//        approve = (Button) findViewById(R.id.wfm_approve);
+        approve = (Button) findViewById(R.id.wfm_approve);
     }
 
     @Override
@@ -115,10 +123,10 @@ public class Wfm_Details_Activity extends BaseActivity {
 //            }
         }
 
-//        mBasIn = new BounceTopEnter();
-//        mBasOut = new SlideBottomExit();
+        mBasIn = new BounceTopEnter();
+        mBasOut = new SlideBottomExit();
 //        details.setOnClickListener(detailsOnClickListener);
-//        approve.setOnClickListener(approveOnClickListener);
+        approve.setOnClickListener(approveOnClickListener);
     }
 
     /**
@@ -181,98 +189,98 @@ public class Wfm_Details_Activity extends BaseActivity {
 //        }
 //    };
 //
-//    private View.OnClickListener approveOnClickListener = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//            EditDialog();
-//        }
-//    };
-//
-//    private void EditDialog() {//输入审核意见
-//        final NormalEditTextDialog dialog = new NormalEditTextDialog(Wfm_Details_Activity.this);
-//        dialog.setCancelable(false);
-//        dialog.setCanceledOnTouchOutside(false);
-//        dialog.isTitleShow(true)//
-//                .title("审批工作流")
-//                .btnNum(3)
-//                .content("通过")//
-//                .btnText("取消", "通过", "不通过")//
-//                .showAnim(mBasIn)//
-//                .dismissAnim(mBasOut)
-//                .show();
-//
-//        dialog.setOnBtnClickL(
-//                new OnBtnEditClickL() {
-//                    @Override
-//                    public void onBtnClick(String text) {
-//                        dialog.dismiss();
-//                    }
-//                },
-//                new OnBtnEditClickL() {
-//                    @Override
-//                    public void onBtnClick(String text) {
-//                        wfgoon("1", text);
-//
-//                        dialog.dismiss();
-//                    }
-//                },
-//                new OnBtnEditClickL() {
-//                    @Override
-//                    public void onBtnClick(String text) {
-//                        Log.e("审批","通过");
-//                        wfgoon("0", text.equals("通过") ? "不通过" : text);
-//                        dialog.dismiss();
-//                    }
-//                }
-//        );
-//    }
-//
-//    /**
-//     * 审批工作流
-//     *
-//     * @param zx
-//     */
-//    private void wfgoon(final String zx, final String desc) {
-//
-//        mProgressDialog = ProgressDialog.show(Wfm_Details_Activity.this, null,
-//                getString(R.string.approve), true, true);
-//        mProgressDialog.setCanceledOnTouchOutside(false);
-//        mProgressDialog.setCancelable(false);
-//
-//        new AsyncTask<String, String, WebResult>() {
-//            @Override
-//            protected WebResult doInBackground(String... strings) {
-//                WebResult result = AndroidClientService.approve(Wfm_Details_Activity.this,
-//                        wfm.getPROCESSNAME(), wfm.getOWNERTABLE(), wfm.getOWNERID(), wfm.getOWNERTABLE() + "ID", zx, desc,
-//                        AccountUtils.getpersonId(Wfm_Details_Activity.this));
-//
-//                Log.e("审批","PROCESSNAME:"+wfm.getPROCESSNAME());
-//                Log.e("审批","OWNERTABLE:"+wfm.getOWNERTABLE());
-//                Log.e("审批","OWNERID:"+wfm.getOWNERID());
-//                Log.e("审批","OWNERTABLE:"+wfm.getOWNERTABLE());
-//                Log.e("审批","是否通过:"+zx);
-//                Log.e("审批","描述:"+desc);
-//                Log.e("审批","工号:"+AccountUtils.getpersonId(Wfm_Details_Activity.this));
-//
-//                Log.i(TAG, "result=" + result);
-//                return result;
-//            }
-//
-//            @Override
-//            protected void onPostExecute(WebResult s) {
-//                super.onPostExecute(s);
-//                if (s == null || s.wonum == null || s.errorMsg == null) {
-//                    Toast.makeText(Wfm_Details_Activity.this, "审批失败", Toast.LENGTH_SHORT).show();
-//                } else if (s.wonum.equals(wfm.getOWNERID()) && s.errorMsg != null) {
-//                    Toast.makeText(Wfm_Details_Activity.this, s.errorMsg, Toast.LENGTH_LONG).show();
-//                    finish();
-//                } else {
-//                    Toast.makeText(Wfm_Details_Activity.this, "审批失败", Toast.LENGTH_SHORT).show();
-//                }
-//                mProgressDialog.dismiss();
-//            }
-//        }.execute();
-//    }
+    private View.OnClickListener approveOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            EditDialog();
+        }
+    };
+
+    private void EditDialog() {//输入审核意见
+        final NormalEditTextDialog dialog = new NormalEditTextDialog(Wfm_Details_Activity.this);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.isTitleShow(true)//
+                .title("审批工作流")
+                .btnNum(3)
+                .content("通过")//
+                .btnText("取消", "通过", "不通过")//
+                .showAnim(mBasIn)//
+                .dismissAnim(mBasOut)
+                .show();
+
+        dialog.setOnBtnClickL(
+                new OnBtnEditClickL() {
+                    @Override
+                    public void onBtnClick(String text) {
+                        dialog.dismiss();
+                    }
+                },
+                new OnBtnEditClickL() {
+                    @Override
+                    public void onBtnClick(String text) {
+                        wfgoon("1", text);
+
+                        dialog.dismiss();
+                    }
+                },
+                new OnBtnEditClickL() {
+                    @Override
+                    public void onBtnClick(String text) {
+                        Log.e("审批","通过");
+                        wfgoon("0", text.equals("通过") ? "不通过" : text);
+                        dialog.dismiss();
+                    }
+                }
+        );
+    }
+
+    /**
+     * 审批工作流
+     *
+     * @param zx
+     */
+    private void wfgoon(final String zx, final String desc) {
+
+        mProgressDialog = ProgressDialog.show(Wfm_Details_Activity.this, null,
+                getString(R.string.approve), true, true);
+        mProgressDialog.setCanceledOnTouchOutside(false);
+        mProgressDialog.setCancelable(false);
+
+        new AsyncTask<String, String, WebResult>() {
+            @Override
+            protected WebResult doInBackground(String... strings) {
+                WebResult result = AndroidClientService.approve(Wfm_Details_Activity.this,
+                        wfm.getPROCESSNAME(), wfm.getOWNERTABLE(), wfm.getOWNERID(), wfm.getOWNERTABLE() + "ID", zx, desc,
+                        AccountUtils.getpersonId(Wfm_Details_Activity.this));
+
+                Log.e("审批","PROCESSNAME:"+wfm.getPROCESSNAME());
+                Log.e("审批","OWNERTABLE:"+wfm.getOWNERTABLE());
+                Log.e("审批","OWNERID:"+wfm.getOWNERID());
+                Log.e("审批","OWNERTABLE:"+wfm.getOWNERTABLE());
+                Log.e("审批","是否通过:"+zx);
+                Log.e("审批","描述:"+desc);
+                Log.e("审批","工号:"+AccountUtils.getpersonId(Wfm_Details_Activity.this));
+
+                Log.i(TAG, "result=" + result);
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(WebResult s) {
+                super.onPostExecute(s);
+                if (s == null || s.wonum == null || s.errorMsg == null) {
+                    Toast.makeText(Wfm_Details_Activity.this, "审批失败", Toast.LENGTH_SHORT).show();
+                } else if (s.wonum.equals(wfm.getOWNERID()) && s.errorMsg != null) {
+                    Toast.makeText(Wfm_Details_Activity.this, s.errorMsg, Toast.LENGTH_LONG).show();
+                    finish();
+                } else {
+                    Toast.makeText(Wfm_Details_Activity.this, "审批失败", Toast.LENGTH_SHORT).show();
+                }
+                mProgressDialog.dismiss();
+            }
+        }.execute();
+    }
 //
 //    //获取工单信息并跳转
 //    private void getWorkOrderData(String worktype){

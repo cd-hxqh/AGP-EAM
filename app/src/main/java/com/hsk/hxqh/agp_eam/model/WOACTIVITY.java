@@ -12,6 +12,7 @@ public class WOACTIVITY implements Serializable {
     public String ESTDUR;//
     public String STATUS;//
     public String WOSEQUENCE;//
+    public String TYPE;
 
     public String getTASKID() {
         return TASKID;
@@ -51,5 +52,13 @@ public class WOACTIVITY implements Serializable {
 
     public void setWOSEQUENCE(String WOSEQUENCE) {
         this.WOSEQUENCE = WOSEQUENCE;
+    }
+
+    public String getTYPE() {
+        return TYPE;
+    }
+
+    public void setTYPE(String TYPE) {
+        this.TYPE = TYPE;
     }
 }

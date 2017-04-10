@@ -83,9 +83,13 @@ public class Constants {
     //故障汇报表名
     public static final String FAILUREREPORT_NAME = "FAILUREREPORT";
     //设备位置appid
-    public static final String LOCATION_APPID = "LOCATION";
+    public static final String LOCATION_APPID = "LOCATIONS";
     //设备位置表名
     public static final String LOCATION_NAME = "LOCATIONS";
+    //设备位置appid
+    public static final String UDYEARPLAN_APPID = "UDYEARPLAN";
+    //设备位置表名
+    public static final String UDYEARPLAN_NAME = "UDYEARPLAN";
     //计划表appid
     public static final String UDINVESTP_APPID = "UDZYSPLAN";
     //计划表表名
@@ -106,111 +110,6 @@ public class Constants {
     //库存余量表名
     public static final String INVBALANCES_NAME = "INVBALANCES";
 
-
-    /**
-     * 工程台账*
-     */
-    //工程台账appid
-    public static final String UDPRO_APPID = "UDPROJECT";
-    //工程台账表名**/
-    public static final String UDPRO_NAME = "UDPRO";
-    /**
-     * 风机型号appid*
-     */
-    public static final String UDFANDETAILS_APPID = "UDFANDETAILS";
-    /**
-     * 风机型号表名*
-     */
-    public static final String UDFANDETAILS_NAME = "UDFANDETAILS";
-
-    /**
-     * 项目人员appid*
-     */
-    public static final String UDPERSON_APPID = "UDPERSON";
-    /**
-     * 项目人员表名*
-     */
-    public static final String UDPERSON_NAME = "PERSON";
-
-    /**
-     * 项目车辆appid*
-     */
-    public static final String UDVEHICLE_APPID = "UDVEHICLE";
-    /**
-     * 项目车辆表名*
-     */
-
-    public static final String UDVEHICLE_NAME = "UDVEHICLE";
-    /**
-     * 项目车辆appid*
-     */
-    public static final String GREASECARD_APPID = "GREASECARD";
-    /**
-     * 项目车辆表名*
-     */
-
-    public static final String GREASECARD_NAME = "GREASECARD";
-    /**
-     * 部门appid*
-     */
-    public static final String UDDEPT_APPID = "UDDEPT";
-    /**
-     * 部门表名*
-     */
-    public static final String UDDEPT_NAME = "UDDEPT";
-
-    /**
-     * 项目日报appid*
-     */
-    public static final String UDPRORUNLOG_APPID = "UDPRORUN";
-    /**
-     * 项目日报表名*
-     */
-    public static final String UDPRORUNLOG_NAME = "UDPRORUNLOG";
-    //土建阶段日报appid
-    public static final String UDPRORUNLOGLINE1_APPID = "UDPRORUNLOGLINE1";
-    //土建阶段日报表名
-    public static final String UDPRORUNLOGLINE1_NAME = "UDPRORUNLOGLINE1";
-    //吊装调试日报appid
-    public static final String UDPRORUNLOGLINE2_APPID = "UDPRORUNLOGLINE2";
-    //吊装调试日报表名
-    public static final String UDPRORUNLOGLINE2_NAME = "UDPRORUNLOGLINE2";
-    //工作日报appid
-    public static final String UDPRORUNLOGLINE3_APPID = "UDPRORUNLOGC";
-    //工作日报表名
-    public static final String UDPRORUNLOGLINE3_NAME = "UDPRORUNLOGC";
-    //工装管理appid
-    public static final String UDPRORUNLOGLINE4_APPID = "UDPRORUNLOGLINE4";
-    //工装管理表名
-    public static final String UDPRORUNLOGLINE4_NAME = "UDPRORUNLOGLINE4";
-
-    /**
-     * 问题联络单appid*
-     */
-    public static final String UDFEEDBACK_APPID = "UDFEDBKCON";
-    /**
-     * 问题联络单表名*
-     */
-    public static final String UDFEEDBACK_NAME = "UDFEEDBACK";
-
-
-    /**
-     * 库存盘点appid*
-     */
-    public static final String UDSTOCK_APPID = "UDSTOCK";
-    /**
-     * 库存盘点表名*
-     */
-    public static final String UDSTOCK_NAME = "UDSTOCK";
-    /**
-     * 库存盘点行appid*
-     */
-    public static final String UDSTOCKLINE_APPID = "UDSTOCKLINE";
-    /**
-     * 库存盘点行表名*
-     */
-    public static final String UDSTOCKLINE_NAME = "UDSTOCKLINE";
-
     /**故障提报单appid**/
     public static final String UDFAULTREP_APPID = "UDFAULTREP";
     /**故障提报单表名**/
@@ -221,81 +120,22 @@ public class Constants {
     /**工作申请表名**/
     public static final String UDWORKAPPLY_NAME = "UDWORKAPPLY";
 
-
-
-
-    /**巡检单appid**/
-    public static final String UDINSPOAPP_APPID = "UDINSPOAPP";
-    /**巡检单表名**/
-    public static final String UDINSPO_NAME = "UDINSPO";
-    /**巡检项目appid**/
-    public static final String UDINSPROJECT_APPID = "UDINSPROJECT";
-    /**巡检项目表名**/
-    public static final String UDINSPROJECT_NAME = "UDINSPROJECT";
-
-    /**运行日志appid**/
-    public static final String UDRUNLOGR_APPID = "UDRUNLOG";
-    /**运行日志表名**/
-    public static final String UDRUNLOGR_NAME = "UDRUNLOGR";
-    /**运行日志子表appid**/
-    public static final String UDRUNLINER_APPID = "UDRUNLINER";
-    /**运行日志表名**/
-    public static final String UDRUNLINER_NAME = "UDRUNLINER";
-
-    /**行驶记录appid**/
-    public static final String UDCARDRIVE_APPID = "UDCARDRIVE";
-    /**行驶记录表名**/
-    public static final String UDCARDRIVE_NAME = "UDCARDRIVELOG";
-
-    /**加油记录appid**/
-    public static final String UDCARFUELCHARGE_APPID = "UDCARFUELC";
-    /**加油记录表名**/
-    public static final String UDCARFUELCHARGE_NAME = "UDCARFUELCHARGE";
-
-    /**维修记录appid**/
-    public static final String UDCARMAINLOG_APPID = "UDCARMAIN";
-    /**维修记录表名**/
-    public static final String UDCARMAINLOG_NAME = "UDCARMAINLOG";
-
-
-    /**附件appid**/
-    public static final String DOCLINKS_APPID = "DOCLINKS";
-    /**附件表名**/
-    public static final String DOCLINKS_NAME = "DOCLINKS";
-
-
     //设备appid
     public static final String ASSET_APPID = "ASSET";
     //设备表名
     public static final String ASSET_NAME = "ASSET";
     //备件表名
     public static final String SPAREPART_NAME = "SPAREPART";
-    //作业计划appid
-    public static final String JOBPLAN_APPID = "UDPLANSTND";
-    //作业计划表名
-    public static final String JOBPLAN_NAME = "JOBPLAN";
+
     //人员appid
-    public static final String PERSON_APPID = "UDPERSON";
+    public static final String PERSON_APPID = "PERSON";
     //人员表名
     public static final String PERSON_NAME = "PERSON";
 
-
-    /**
-     *出差总结报告
-     */
-
-    public static final String UDTRIPREPORT_APPID="TRIPREPORT";
-
-    public static final String UDTRIPREPORT_NAME="UDTRIPREPORT";
-
-    /**
-     * 位置表*
-     */
-    public static final String UDSTORELOC_APPID = "UDSTORELOC";
-    /**
-     * 位置表名*
-     */
-    public static final String LOCATIONS_NAME = "LOCATIONS";
+    /**附件appid**/
+    public static final String DOCLINKS_APPID = "DOCLINKS";
+    /**附件表名**/
+    public static final String DOCLINKS_NAME = "DOCLINKS";
 
     /**
      * 选择工单*

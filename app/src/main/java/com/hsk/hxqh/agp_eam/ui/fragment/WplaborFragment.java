@@ -244,6 +244,8 @@ public class WplaborFragment extends Fragment implements SwipeRefreshLayout.OnRe
                 Intent intent = new Intent(getActivity(), WplaborDetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("wplabor", items.get(position));
+                bundle.putSerializable("workorder", workorder);
+                bundle.putSerializable("wplabors", items);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 0);
             }

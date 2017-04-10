@@ -8,6 +8,7 @@ import java.io.Serializable;
  */
 
 public class UDWORKAPPLY implements Serializable {
+    public String UDWORKAPPLYID;
     public String WOAPPLYNUM;//工作申请编号
     public String DESCRIPTION;//工作申请描述
     public String CREATEBYNAME;//创建人
@@ -27,6 +28,14 @@ public class UDWORKAPPLY implements Serializable {
     public String PLANNUM;//年度计划编号
     public String JPNUM;//作业计划编号
     public String WONUM;//工单编号
+
+    public String getUDWORKAPPLYID() {
+        return UDWORKAPPLYID;
+    }
+
+    public void setUDWORKAPPLYID(String UDWORKAPPLYID) {
+        this.UDWORKAPPLYID = UDWORKAPPLYID;
+    }
 
     public String getWOAPPLYNUM() {
         return WOAPPLYNUM;

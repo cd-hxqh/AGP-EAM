@@ -8,11 +8,18 @@ import com.hsk.hxqh.agp_eam.bean.Results;
 import com.hsk.hxqh.agp_eam.config.Constants;
 import com.hsk.hxqh.agp_eam.model.ASSET;
 import com.hsk.hxqh.agp_eam.model.ASSET_WORKORDER;
+import com.hsk.hxqh.agp_eam.model.COMPANIES;
+import com.hsk.hxqh.agp_eam.model.CRAFTRATE;
+import com.hsk.hxqh.agp_eam.model.Doclinks;
 import com.hsk.hxqh.agp_eam.model.INVBALANCES;
 import com.hsk.hxqh.agp_eam.model.INVENTORY;
+import com.hsk.hxqh.agp_eam.model.JOBPLAN;
 import com.hsk.hxqh.agp_eam.model.LABTRANS;
+import com.hsk.hxqh.agp_eam.model.LOCATIONS;
 import com.hsk.hxqh.agp_eam.model.MATUSETRANS;
+import com.hsk.hxqh.agp_eam.model.PERSON;
 import com.hsk.hxqh.agp_eam.model.SPAREPART;
+import com.hsk.hxqh.agp_eam.model.UDYEARPLAN;
 import com.hsk.hxqh.agp_eam.model.WFASSIGNMENT;
 import com.hsk.hxqh.agp_eam.model.WOACTIVITY;
 import com.hsk.hxqh.agp_eam.model.WORKORDER;
@@ -20,12 +27,14 @@ import com.hsk.hxqh.agp_eam.model.UDFAULTREPORT;
 import com.hsk.hxqh.agp_eam.model.UDWORKAPPLY;
 import com.hsk.hxqh.agp_eam.model.WPLABOR;
 import com.hsk.hxqh.agp_eam.model.WPMATERIAL;
+import com.hsk.hxqh.agp_eam.model.WebResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
@@ -59,6 +68,87 @@ public class JsonUtils<E> {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * 解析开始工作流返回信息
+     *
+     * @param data
+     * @return
+     */
+    public static WebResult parsingStartWF(String data, String num) {
+        Log.i(TAG, "data=" + data);
+        String woNum = null;
+        WebResult webResult = new WebResult();
+        try {
+            JSONObject object = new JSONObject(data);
+            if (object.has("msg") && !object.getString("msg").equals("")) {
+                webResult.errorMsg = object.getString("msg");
+            }
+            if (object.has(num) && !object.getString(num).equals("")) {
+                webResult.wonum = object.getString(num);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return webResult;
+    }
+
+    /**
+     * 解析审批工作流返回数据
+     *
+     * @param data
+     * @return
+     */
+    public static WebResult parsingGoOn(String data, String num) {
+        Log.i(TAG, "data=" + data);
+        String woNum = null;
+        WebResult webResult = new WebResult();
+        try {
+            JSONObject object = new JSONObject(data);
+            if (object.has("status") && !object.getString("status").equals("")) {
+                webResult.errorMsg = object.getString("status");
+            } else if (object.has("massage") && !object.getString("massage").equals("")) {
+                webResult.errorMsg = object.getString("massage");
+            } else if (object.has("errorMsg") && !object.getString("errorMsg").equals("")) {
+                webResult.errorMsg = object.getString("errorMsg");
+            }
+            if (object.has(num) && !object.getString(num).equals("")) {
+                webResult.wonum = object.getString(num);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return webResult;
+    }
+
+    /**
+     * 解析新增工单返回信息
+     *
+     * @param data
+     * @return
+     */
+    public static WebResult parsingInsertWO(String data, String num) {
+        Log.i(TAG, "data=" + data);
+        String woNum = null;
+        WebResult webResult = new WebResult();
+        try {
+            JSONObject object = new JSONObject(data);
+            if (object.has("errorMsg") && !object.getString("errorMsg").equals("")) {
+                webResult.errorMsg = object.getString("errorMsg");
+            } else if (object.has("success") && !object.getString("success").equals("")) {
+                webResult.errorMsg = object.getString("success");
+            }
+            if (object.has(num) && !object.getString(num).equals("")) {
+                webResult.wonum = object.getString(num);
+            }
+            if (object.has("errorNo")) {
+                webResult.errorNo = object.getInt("errorNo");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return webResult;
     }
 
 //    /**
@@ -281,6 +371,151 @@ public class JsonUtils<E> {
             return null;
         }
 
+    }
+
+    /**
+     * 人员*
+     */
+    public static ArrayList<PERSON> parsingPERSON(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<PERSON> list = null;
+        PERSON person = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<PERSON>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                person = new PERSON();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = person.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = person.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(person);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = person.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(person, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(person);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 员工*
+     */
+    public static ArrayList<CRAFTRATE> parsingCRAFTRATE(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<CRAFTRATE> list = null;
+        CRAFTRATE craftrate = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<CRAFTRATE>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                craftrate = new CRAFTRATE();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = craftrate.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = craftrate.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(craftrate);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = craftrate.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(craftrate, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(craftrate);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 供应商*
+     */
+    public static ArrayList<COMPANIES> parsingCOMPANIES(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<COMPANIES> list = null;
+        COMPANIES companies = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<COMPANIES>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                companies = new COMPANIES();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = companies.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = companies.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(companies);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = companies.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(companies, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(companies);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -673,6 +908,150 @@ public class JsonUtils<E> {
     }
 
     /**
+     * 位置*
+     */
+    public static ArrayList<LOCATIONS> parsingLOCATIONS(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<LOCATIONS> list = null;
+        LOCATIONS locations = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<LOCATIONS>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                locations = new LOCATIONS();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = locations.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = locations.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(locations);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = locations.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(locations, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(locations);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 年度计划*
+     */
+    public static ArrayList<UDYEARPLAN> parsingUDYEARPLAN(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<UDYEARPLAN> list = null;
+        UDYEARPLAN udyearplan = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<UDYEARPLAN>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                udyearplan = new UDYEARPLAN();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = udyearplan.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = udyearplan.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(udyearplan);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = udyearplan.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(udyearplan, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(udyearplan);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 作业计划*
+     */
+    public static ArrayList<JOBPLAN> parsingJOBPLAN(Context ctx, String data) {
+        Log.i(TAG, "udpro data=" + data);
+        ArrayList<JOBPLAN> list = null;
+        JOBPLAN jobplan = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<JOBPLAN>();
+            Log.i(TAG, "jsonArray length=" + jsonArray.length());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                jobplan = new JOBPLAN();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = jobplan.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = jobplan.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(jobplan);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = jobplan.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(jobplan, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(jobplan);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
      * 库存*
      */
     public static ArrayList<INVENTORY> parsingINVENTORY(Context ctx, String data) {
@@ -766,6 +1145,403 @@ public class JsonUtils<E> {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * 封装工单数据
+     *
+     * @param workOrder
+     * @param woactivities
+     * @return
+     */
+    public static String WorkToJson(WORKORDER workOrder, ArrayList<WOACTIVITY> woactivities,ArrayList<WPLABOR> wplabors,ArrayList<WPMATERIAL> wpmaterials,
+                                    ArrayList<LABTRANS> labtranses,ArrayList<MATUSETRANS> matusetranses) {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray array = new JSONArray();
+        try {
+            Field[] field = workOrder.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+            for (int j = 0; j < field.length; j++) {
+                field[j].setAccessible(true);
+                String name = field[j].getName();//获取属性的名字
+                Method getOrSet = null;
+                try {
+                    if (!name.equals("isnew") && !name.equals("WORKORDERID") && !name.equals("id") && !name.equals("isUpdate")) {
+                        getOrSet = workOrder.getClass().getMethod("get" + name);
+                        Object value = null;
+                        value = getOrSet.invoke(workOrder);
+                        if (value != null) {
+                            jsonObject.put(name, value + "");
+                        }
+                    }
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+            JSONObject object = new JSONObject();
+            if (woactivities != null && woactivities.size() != 0) {
+                object.put("WOACTIVITY", "");
+                JSONArray woactivityArray = new JSONArray();
+                JSONObject woactivityObj;
+                for (int i = 0; i < woactivities.size(); i++) {
+                    woactivityObj = new JSONObject();
+                    Field[] field1 = woactivities.get(i).getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                    for (int j = 0; j < field1.length; j++) {
+                        field1[j].setAccessible(true);
+                        String name = field1[j].getName();//获取属性的名字
+                        Method getOrSet = null;
+                        try {
+                            if (!name.equals("belongid") && !name.equals("id") && !name.equals("isUpload")) {
+                                getOrSet = woactivities.get(i).getClass().getMethod("get" + name);
+                                Object value = null;
+                                value = getOrSet.invoke(woactivities.get(i));
+                                if (value != null) {
+                                    woactivityObj.put(name, value + "");
+                                }
+                            }
+                        } catch (NoSuchMethodException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (woactivityObj.get("TYPE").equals("add") && woactivityObj.has("WORKORDERID") && woactivityObj.get("WORKORDERID").equals("0")) {
+                        woactivityObj.remove("WORKORDERID");
+                    }
+                    woactivityArray.put(woactivityObj);
+                }
+                jsonObject.put("WOACTIVITY", woactivityArray);
+            }
+            if (wplabors != null && wplabors.size() != 0) {
+                object.put("WPLABOR", "");
+                JSONArray wplaborArray = new JSONArray();
+                JSONObject wplaborObj;
+                for (int i = 0; i < woactivities.size(); i++) {
+                    wplaborObj = new JSONObject();
+                    Field[] field1 = woactivities.get(i).getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                    for (int j = 0; j < field1.length; j++) {
+                        field1[j].setAccessible(true);
+                        String name = field1[j].getName();//获取属性的名字
+                        Method getOrSet = null;
+                        try {
+                            if (!name.equals("belongid") && !name.equals("id") && !name.equals("isUpload")) {
+                                getOrSet = woactivities.get(i).getClass().getMethod("get" + name);
+                                Object value = null;
+                                value = getOrSet.invoke(woactivities.get(i));
+                                if (value != null) {
+                                    wplaborObj.put(name, value + "");
+                                }
+                            }
+                        } catch (NoSuchMethodException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
+                    }
+//                    if (wplaborObj.get("TYPE").equals("add") && wplaborObj.has("WORKORDERID") && wplaborObj.get("WORKORDERID").equals("0")) {
+//                        wplaborObj.remove("WORKORDERID");
+//                    }
+                    wplaborArray.put(wplaborObj);
+                }
+                jsonObject.put("WPLABOR", wplaborArray);
+            }
+            if (wpmaterials != null && wpmaterials.size() != 0) {
+                object.put("WPMATERIAL", "");
+                JSONArray wpmaterialArray = new JSONArray();
+                JSONObject wpmaterialObj;
+                for (int i = 0; i < woactivities.size(); i++) {
+                    wpmaterialObj = new JSONObject();
+                    Field[] field1 = woactivities.get(i).getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                    for (int j = 0; j < field1.length; j++) {
+                        field1[j].setAccessible(true);
+                        String name = field1[j].getName();//获取属性的名字
+                        Method getOrSet = null;
+                        try {
+                            if (!name.equals("belongid") && !name.equals("id") && !name.equals("isUpload")) {
+                                getOrSet = woactivities.get(i).getClass().getMethod("get" + name);
+                                Object value = null;
+                                value = getOrSet.invoke(woactivities.get(i));
+                                if (value != null) {
+                                    wpmaterialObj.put(name, value + "");
+                                }
+                            }
+                        } catch (NoSuchMethodException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
+                    }
+//                    if (woactivityObj.get("TYPE").equals("add") && woactivityObj.has("WORKORDERID") && woactivityObj.get("WORKORDERID").equals("0")) {
+//                        woactivityObj.remove("WORKORDERID");
+//                    }
+                    wpmaterialArray.put(wpmaterialObj);
+                }
+                jsonObject.put("WPMATERIAL", wpmaterialArray);
+            }
+            if (labtranses != null && labtranses.size() != 0) {
+                object.put("LABTRANS", "");
+                JSONArray labtransArray = new JSONArray();
+                JSONObject labtransObj;
+                for (int i = 0; i < woactivities.size(); i++) {
+                    labtransObj = new JSONObject();
+                    Field[] field1 = woactivities.get(i).getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                    for (int j = 0; j < field1.length; j++) {
+                        field1[j].setAccessible(true);
+                        String name = field1[j].getName();//获取属性的名字
+                        Method getOrSet = null;
+                        try {
+                            if (!name.equals("belongid") && !name.equals("id") && !name.equals("isUpload")) {
+                                getOrSet = woactivities.get(i).getClass().getMethod("get" + name);
+                                Object value = null;
+                                value = getOrSet.invoke(woactivities.get(i));
+                                if (value != null) {
+                                    labtransObj.put(name, value + "");
+                                }
+                            }
+                        } catch (NoSuchMethodException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
+                    }
+//                    if (woactivityObj.get("TYPE").equals("add") && woactivityObj.has("WORKORDERID") && woactivityObj.get("WORKORDERID").equals("0")) {
+//                        woactivityObj.remove("WORKORDERID");
+//                    }
+                    labtransArray.put(labtransObj);
+                }
+                jsonObject.put("LABTRANS", labtransArray);
+            }
+            if (matusetranses != null && matusetranses.size() != 0) {
+                object.put("MATUSETRANS", "");
+                JSONArray matusetransArray = new JSONArray();
+                JSONObject matusetransObj;
+                for (int i = 0; i < woactivities.size(); i++) {
+                    matusetransObj = new JSONObject();
+                    Field[] field1 = woactivities.get(i).getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                    for (int j = 0; j < field1.length; j++) {
+                        field1[j].setAccessible(true);
+                        String name = field1[j].getName();//获取属性的名字
+                        Method getOrSet = null;
+                        try {
+                            if (!name.equals("belongid") && !name.equals("id") && !name.equals("isUpload")) {
+                                getOrSet = woactivities.get(i).getClass().getMethod("get" + name);
+                                Object value = null;
+                                value = getOrSet.invoke(woactivities.get(i));
+                                if (value != null) {
+                                    matusetransObj.put(name, value + "");
+                                }
+                            }
+                        } catch (NoSuchMethodException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
+                    }
+//                    if (woactivityObj.get("TYPE").equals("add") && woactivityObj.has("WORKORDERID") && woactivityObj.get("WORKORDERID").equals("0")) {
+//                        woactivityObj.remove("WORKORDERID");
+//                    }
+                    matusetransArray.put(matusetransObj);
+                }
+                jsonObject.put("MATUSETRANS", matusetransArray);
+            }
+            JSONArray jsonArray = new JSONArray();
+            jsonArray.put(object);
+            jsonObject.put("relationShip", jsonArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("封装工单", jsonObject.toString());
+        return jsonObject.toString();
+    }
+
+    /**
+     * 封装工单数据
+     *
+     * @param workOrder
+     * @return
+     */
+    public static String WorkToJson(WORKORDER workOrder) {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray array = new JSONArray();
+        try {
+            Field[] field = workOrder.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+            for (int j = 0; j < field.length; j++) {
+                field[j].setAccessible(true);
+                String name = field[j].getName();//获取属性的名字
+                Method getOrSet = null;
+                try {
+                    if (!name.equals("isnew") && !name.equals("WORKORDERID")) {
+                        getOrSet = workOrder.getClass().getMethod("get" + name);
+                        Object value = null;
+                        value = getOrSet.invoke(workOrder);
+                        if (value != null) {
+                            jsonObject.put(name, value + "");
+                        }
+                    }
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+            JSONObject object = new JSONObject();
+            JSONArray jsonArray = new JSONArray();
+            jsonArray.put(object);
+            jsonObject.put("relationShip", jsonArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("封装工单", jsonObject.toString());
+        return jsonObject.toString();
+    }
+
+    /**
+     * 封装故障提报单
+     *
+     * @param workOrder
+     * @return
+     */
+    public static String UdfaultreportToJson(UDFAULTREPORT workOrder) {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray array = new JSONArray();
+        try {
+            Field[] field = workOrder.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+            for (int j = 0; j < field.length; j++) {
+                field[j].setAccessible(true);
+                String name = field[j].getName();//获取属性的名字
+                Method getOrSet = null;
+                try {
+                    if (!name.equals("isnew") && !name.equals("WORKORDERID")) {
+                        getOrSet = workOrder.getClass().getMethod("get" + name);
+                        Object value = null;
+                        value = getOrSet.invoke(workOrder);
+                        if (value != null) {
+                            jsonObject.put(name, value + "");
+                        }
+                    }
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+            JSONObject object = new JSONObject();
+            JSONArray jsonArray = new JSONArray();
+            jsonArray.put(object);
+            jsonObject.put("relationShip", jsonArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("封装工单", jsonObject.toString());
+        return jsonObject.toString();
+    }
+
+    /**
+     * 封装工作申请
+     *
+     * @param workOrder
+     * @return
+     */
+    public static String UdworkapplyToJson(UDWORKAPPLY workOrder) {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray array = new JSONArray();
+        try {
+            Field[] field = workOrder.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+            for (int j = 0; j < field.length; j++) {
+                field[j].setAccessible(true);
+                String name = field[j].getName();//获取属性的名字
+                Method getOrSet = null;
+                try {
+                    if (!name.equals("isnew") && !name.equals("WORKORDERID")) {
+                        getOrSet = workOrder.getClass().getMethod("get" + name);
+                        Object value = null;
+                        value = getOrSet.invoke(workOrder);
+                        if (value != null) {
+                            jsonObject.put(name, value + "");
+                        }
+                    }
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+            JSONObject object = new JSONObject();
+            JSONArray jsonArray = new JSONArray();
+            jsonArray.put(object);
+            jsonObject.put("relationShip", jsonArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("封装工作申请", jsonObject.toString());
+        return jsonObject.toString();
+    }
+
+    /**
+     * 附件类*
+     */
+    public static ArrayList<Doclinks> parsingDoclinks(Context ctx, String data) {
+        Log.i(TAG, "ddddata=" + data);
+        ArrayList<Doclinks> list = null;
+        Doclinks doclinks = null;
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+            JSONObject jsonObject;
+            list = new ArrayList<Doclinks>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                doclinks = new Doclinks();
+                jsonObject = jsonArray.getJSONObject(i);
+                Field[] field = doclinks.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组
+                for (int j = 0; j < field.length; j++) {     //遍历所有属性
+                    field[j].setAccessible(true);
+                    String name = field[j].getName();    //获取属性的名字
+                    Log.i(TAG, "name=" + name);
+                    if (jsonObject.has(name) && jsonObject.getString(name) != null && !jsonObject.getString(name).equals("")) {
+                        try {
+                            // 调用getter方法获取属性值
+                            Method getOrSet = doclinks.getClass().getMethod("get" + name);
+                            Object value = getOrSet.invoke(doclinks);
+                            if (value == null) {
+                                //调用setter方法设属性值
+                                Class[] parameterTypes = new Class[1];
+                                parameterTypes[0] = field[j].getType();
+                                getOrSet = doclinks.getClass().getDeclaredMethod("set" + name, parameterTypes);
+                                getOrSet.invoke(doclinks, jsonObject.getString(name));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+                list.add(doclinks);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
 //

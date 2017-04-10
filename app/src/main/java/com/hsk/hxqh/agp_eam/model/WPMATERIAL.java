@@ -26,6 +26,7 @@ public class WPMATERIAL implements Serializable {
     public String WPMATERIALINVITECAT;
     public String WPMATERIALSTODES;
     public String itemnum;//
+    public String TYPE;
 
     public String getITEMNUM() {
         return ITEMNUM;
@@ -169,5 +170,13 @@ public class WPMATERIAL implements Serializable {
 
     public void setItemnum(String itemnum) {
         this.itemnum = itemnum;
+    }
+
+    public String getTYPE() {
+        return TYPE;
+    }
+
+    public void setTYPE(String TYPE) {
+        this.TYPE = TYPE;
     }
 }

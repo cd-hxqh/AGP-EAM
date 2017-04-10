@@ -11,6 +11,7 @@ public class WPLABOR implements Serializable {
     public String TASKID;//
     public String LABORCODE;//
     public String QUANTITY;//
+    public String TYPE;
 
     public String getTASKID() {
         return TASKID;
@@ -34,5 +35,13 @@ public class WPLABOR implements Serializable {
 
     public void setQUANTITY(String QUANTITY) {
         this.QUANTITY = QUANTITY;
+    }
+
+    public String getTYPE() {
+        return TYPE;
+    }
+
+    public void setTYPE(String TYPE) {
+        this.TYPE = TYPE;
     }
 }

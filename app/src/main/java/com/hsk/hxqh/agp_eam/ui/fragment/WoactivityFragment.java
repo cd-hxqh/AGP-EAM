@@ -246,6 +246,8 @@ public class WoactivityFragment extends Fragment implements SwipeRefreshLayout.O
                 Intent intent = new Intent(getActivity(), WoactivityDetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("woactivity", items.get(position));
+                bundle.putSerializable("workorder", workorder);
+                bundle.putSerializable("woactivities", items);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 0);
             }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../FlycoAnimation_Lib/FlycoAnimation_Lib.iml" filepath="$PROJECT_DIR$/../FlycoAnimation_Lib/FlycoAnimation_Lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FlycoDialog_Lib/FlycoDialog_Lib.iml" filepath="$PROJECT_DIR$/../FlycoDialog_Lib/FlycoDialog_Lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MingYang_object.iml" filepath="$PROJECT_DIR$/../MingYang_object.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../app/app.iml" filepath="$PROJECT_DIR$/../app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bDIntegrationSDK_LibProject/bDIntegrationSDK_LibProject.iml" filepath="$PROJECT_DIR$/../bDIntegrationSDK_LibProject/bDIntegrationSDK_LibProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imagepicker.iml" filepath="$PROJECT_DIR$/imagepicker.iml" />
+    </modules>
+  </component>
+</project>

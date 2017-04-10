@@ -8,6 +8,7 @@ import java.io.Serializable;
  */
 
 public class UDFAULTREPORT implements Serializable {
+    public String UDFAULTREPORTID;
     public String UDFAULTREPORTNUM;//故障编号
     public String DESCRIPTION;//故障描述
     public String UDSTATIONNUM;//站场编号
@@ -26,6 +27,14 @@ public class UDFAULTREPORT implements Serializable {
     public String CREATEDATE;//创建时间
     public String CREATEBYNAME;//创建人
     public String CONCLUSION;//故障总结
+
+    public String getUDFAULTREPORTID() {
+        return UDFAULTREPORTID;
+    }
+
+    public void setUDFAULTREPORTID(String UDFAULTREPORTID) {
+        this.UDFAULTREPORTID = UDFAULTREPORTID;
+    }
 
     public String getUDFAULTREPORTNUM() {
         return UDFAULTREPORTNUM;

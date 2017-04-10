@@ -129,6 +129,7 @@
     <string name="asset_actfinish">实际完成时间:</string>
     
     <!--工单-->
+    <string name="work_title">工单详情</string>
     <string name="work_cm">故障/隐患工单</string>
     <string name="work_pm">维护工单</string>
     <string name="work_wonum">工单编号:</string>
@@ -161,8 +162,8 @@
     <string name="work_workreal">实际情况</string>
     <string name="work_workflow">发送工作流</string>
     <string name="work_upload">上传附件</string>
-    <string name="work_woactivity">任务</string>
 
+    <string name="work_woactivity">任务</string>
     <string name="woactivity_taskid">任务:</string>
     <string name="woactivity_description">摘要:</string>
     <string name="woactivity_estdur">估计持续时间:</string>
@@ -258,5 +259,22 @@
     <string name="startdate_text">开始时间:</string>
     <string name="workdates_text">工期:</string>
     <string name="jpnum_text">作业计划编号:</string>
+
+    <string name="asset_choose_title">资产</string>
+    <string name="location_choose_title">位置</string>
+    <string name="jobplan_choose_title">作业计划</string>
+    <string name="craftrate_choose_title">员工</string>
+    <string name="person_choose_title">人员</string>
+    <string name="udyearplan_choose_title">年度计划</string>
+    <string name="companies_choose_title">供应商</string>
+    <string name="cancel">取消</string>
+    <string name="save">保存</string>
+    <string name="start">启动中…</string>
+    <string name="wfm_approve_text">审批</string>
+    <string name="approve">审批提交中…</string>
+    <string name="check_photo_hint">请选择需要上传的图片</string>
+    <string name="check_phtot">选择图片</string>
+    <string name="work_commit">图片上传</string>
+    <string name="attachment_details">图片查看</string>
 
 </resources>

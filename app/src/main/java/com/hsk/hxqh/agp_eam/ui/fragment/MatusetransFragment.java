@@ -244,6 +244,8 @@ public class MatusetransFragment extends Fragment implements SwipeRefreshLayout.
                 Intent intent = new Intent(getActivity(), MatusetransDetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("matusetrans", items.get(position));
+                bundle.putSerializable("workorder", workorder);
+                bundle.putSerializable("matusetranses", items);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 0);
             }

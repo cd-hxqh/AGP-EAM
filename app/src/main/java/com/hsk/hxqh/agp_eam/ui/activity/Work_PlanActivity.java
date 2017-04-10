@@ -115,7 +115,7 @@ public class Work_PlanActivity extends BaseActivity {
         backimg.setBackgroundResource(R.drawable.ic_back);
         backimg.setOnClickListener(backOnClickListener);
         menuImageView.setImageResource(R.drawable.ic_add);
-        menuImageView.setVisibility(View.VISIBLE);
+//        menuImageView.setVisibility(View.VISIBLE);
         menuImageView.setOnClickListener(menuImageViewOnClickListener);
 //        if (workOrder.wonum!=null&&!workOrder.wonum.equals("")&&!workOrder.status.equals(Constants.WAIT_APPROVAL)){
 //            menuImageView.setVisibility(View.GONE);

@@ -48,6 +48,7 @@ public class UdworkapplyActivity extends BaseActivity implements SwipeRefreshLay
      * 标题
      **/
     private TextView titleTextView;
+    private ImageView addImg;
 
 
     LinearLayoutManager layoutManager;
@@ -95,6 +96,7 @@ public class UdworkapplyActivity extends BaseActivity implements SwipeRefreshLay
     protected void findViewById() {
         backImageView = (ImageView) findViewById(R.id.menu_id);
         titleTextView = (TextView) findViewById(R.id.menu_title);
+        addImg = (ImageView) findViewById(R.id.title_more);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_id);
         refresh_layout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         nodatalayout = (LinearLayout) findViewById(R.id.have_not_data_id);
@@ -109,6 +111,9 @@ public class UdworkapplyActivity extends BaseActivity implements SwipeRefreshLay
         backImageView.setOnClickListener(backImageViewOnClickListener);
         backImageView.setBackgroundResource(R.drawable.ic_back);
         titleTextView.setText(R.string.udworkapply_text);
+        addImg.setBackgroundResource(R.drawable.ic_add);
+        addImg.setVisibility(View.VISIBLE);
+        addImg.setOnClickListener(addOnClickListener);
 
         setSearchEdit();
 
@@ -134,6 +139,14 @@ public class UdworkapplyActivity extends BaseActivity implements SwipeRefreshLay
         @Override
         public void onClick(View view) {
             finish();
+        }
+    };
+
+    private View.OnClickListener addOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(UdworkapplyActivity.this,UdworkapplyAddActivity.class);
+            startActivity(intent);
         }
     };
 

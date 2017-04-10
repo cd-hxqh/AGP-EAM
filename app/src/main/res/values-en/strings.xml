@@ -127,6 +127,7 @@
     <string name="asset_actfinish">Actual completion time:</string>
 
     <!--工单-->
+    <string name="work_title">WorkOrder details</string>
     <string name="work_cm">Failure Report WorkOrder</string>
     <string name="work_pm">Maintain Workorder</string>
     <string name="work_wonum">Work Order:</string>
@@ -257,4 +258,20 @@
     <string name="workdates_text">Dates of Work:</string>
     <string name="jpnum_text">Job Plan No:</string>
 
+    <string name="asset_choose_title">Asset</string>
+    <string name="location_choose_title">Location</string>
+    <string name="jobplan_choose_title">Job Plan</string>
+    <string name="craftrate_choose_title">employees</string>
+    <string name="person_choose_title">person</string>
+    <string name="udyearplan_choose_title">yearly plan</string>
+    <string name="companies_choose_title">supplier</string>
+    <string name="cancel">cancel</string>
+    <string name="save">save</string>
+    <string name="start">be starting…</string>
+    <string name="wfm_approve_text">The examination and approval</string>
+    <string name="approve">In the examination and approval to submit…</string>
+    <string name="check_photo_hint">Please select need to upload images</string>
+    <string name="check_phtot">Choose images</string>
+    <string name="work_commit">Image upload</string>
+    <string name="attachment_details">Picture to view</string>
 </resources>

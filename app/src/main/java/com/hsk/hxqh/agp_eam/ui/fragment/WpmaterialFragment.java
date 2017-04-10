@@ -244,6 +244,8 @@ public class WpmaterialFragment extends Fragment implements SwipeRefreshLayout.O
                 Intent intent = new Intent(getActivity(), WpmaterialDetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("wpmaterial", items.get(position));
+                bundle.putSerializable("workorder", workorder);
+                bundle.putSerializable("wpmaterials", items);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 0);
             }
