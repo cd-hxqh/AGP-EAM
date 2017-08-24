@@ -12,7 +12,7 @@ public class Constants {
      * 默认*
      */
     public static final String HTTP_API_IP = "http://182.92.8.94:7011";
-
+//    public static final String HTTP_API_IP = "http://10.3.252.10";
 
 
 
@@ -109,6 +109,21 @@ public class Constants {
     public static final String INVENTORY_NAME = "INVENTORY";
     //库存余量表名
     public static final String INVBALANCES_NAME = "INVBALANCES";
+
+    //库存盘点appid
+    public static final String UDSTOCK_APPID = "UDSTOCK";
+    //库存盘点表名
+    public static final String UDSTOCK_NAME = "UDSTOCK";
+
+    //库存盘点子表appid
+    public static final String UDSTOCKLINE_APPID = "UDSTOCKLINE";
+    //库存盘点子表表名
+    public static final String UDSTOCKLINE_NAME = "UDSTOCKLINE";
+
+    //物资台帐appid
+    public static final String ITEM2_APPID = "ITEM";
+    //物资台帐表名
+    public static final String ITEM2_NAME = "ITEM";
 
     /**故障提报单appid**/
     public static final String UDFAULTREP_APPID = "UDFAULTREP";

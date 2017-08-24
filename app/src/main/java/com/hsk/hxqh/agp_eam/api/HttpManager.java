@@ -61,7 +61,7 @@ public class HttpManager {
                     "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ASSETNUM ASC'}";
         } else {
             return "{'appid':'" + Constants.ASSET_APPID + "','objectname':'" + Constants.ASSET_NAME + "'," +
-                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ASSETNUM ASC','sinorsearch':{'ASSETNUM':' "+ search + "','DESCRIPTION':'" + search + "'}}";
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ASSETNUM ASC','sinorsearch':{'ASSETNUM':' "+ search + "','DESCRIPTION':'" + search + "','LOCDESC':'" + search + "'}}";
         }
     }
 
@@ -161,8 +161,50 @@ public class HttpManager {
                     "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ITEMNUM desc'}";
         } else {
             return "{'appid':'" + Constants.INVENTORY_APPID + "','objectname':'" + Constants.INVENTORY_NAME + "'," +
-                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ITEMNUM desc','sinorsearch':{'ITEMNUM':' "+ search + "','ITEMNUM_DEC':'" + search + "'}}";
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ITEMNUM desc','sinorsearch':{'ITEMNUM':'"+ search + "','ITEMNUM_DEC':'" + search + "'}}";
         }
+    }
+
+    /**
+     * 设置库存盘点查询*
+     */
+    public static String getUdstockUrl(String search, int curpage, int showcount) {
+        if (search.equals("")) {
+            return "{'appid':'" + Constants.UDSTOCK_APPID + "','objectname':'" + Constants.UDSTOCK_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'STOCKNUM desc'}";
+        } else {
+            return "{'appid':'" + Constants.UDSTOCK_APPID + "','objectname':'" + Constants.UDSTOCK_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'STOCKNUM desc','sinorsearch':{'STOCKNUM':' "+ search + "','DESCRIPTION':'" + search + "'}}";
+        }
+    }
+
+    /**
+     * 设置库存盘点子表查询*
+     */
+    public static String getUdstocklineUrl(String stocknum,int curpage, int showcount) {
+        return "{'appid':'" + Constants.UDSTOCKLINE_APPID + "','objectname':'" + Constants.UDSTOCKLINE_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'STOCKNUM':'=" + stocknum + "'}}";
+    }
+
+    /**
+     * 设置物资台帐查询*
+     */
+    public static String getItemUrl(String search, int curpage, int showcount) {
+        if (search.equals("")) {
+            return "{'appid':'" + Constants.ITEM2_APPID + "','objectname':'" + Constants.ITEM2_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ITEMNUM desc'}";
+        } else {
+            return "{'appid':'" + Constants.ITEM2_APPID + "','objectname':'" + Constants.ITEM2_NAME + "'," +
+                    "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','orderby':'ITEMNUM desc','sinorsearch':{'ITEMNUM':'"+ search + "','DESCRIPTION':'" + search + "'}}";
+        }
+    }
+
+    /**
+     * 设置备件查询*
+     */
+    public static String getItemInventoryUrl(String itemnum,int curpage, int showcount) {
+        return "{'appid':'" + Constants.INVENTORY_APPID + "','objectname':'" + Constants.INVENTORY_NAME + "'," +
+                "'curpage':" + curpage + ",'showcount':" + showcount + ",'option':'read','condition':{'ITEMNUM':'=" + itemnum + "'}}";
     }
 
     /**

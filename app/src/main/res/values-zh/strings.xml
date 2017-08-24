@@ -209,7 +209,7 @@
 
 
     <!--库存-->
-    <string name="inventory">库存</string>
+    <string name="inventory">库存查询</string>
     <string name="inventory_itemnum">项目:</string>
     <string name="inventory_itemnum_dec">描述:</string>
     <string name="inventory_location">库房:</string>
@@ -218,6 +218,7 @@
     <string name="inventory_issueunit">发放单位:</string>
     <string name="inventory_curbaltotal">当前余量:</string>
     <string name="inventory_avblbalance">可用量:</string>
+    <string name="inventory_binnum">缺省货柜:</string>
 
     <string name="invbalances">库存余量</string>
     <string name="invbalances_binnum">货柜:</string>
@@ -227,6 +228,32 @@
     <string name="invbalances_physcnt">实际库存量:</string>
     <string name="invbalances_physcntdate">实际盘点日期:</string>
     <string name="invbalances_reconciled">已调整?</string>
+
+    <string name="udstock">库存盘点</string>
+    <string name="udstock_stocknum">盘点单号:</string>
+    <string name="udstock_description">描述:</string>
+    <string name="udstock_storeroom">库房:</string>
+    <string name="udstock_udstockstodes">库房名称:</string>
+    <string name="udstock_invowner">库房管理员:</string>
+    <string name="udstock_udstockinvdis">管理员姓名:</string>
+    <string name="udstock_remark">备注:</string>
+    <string name="udstock_status">状态:</string>
+    <string name="udstock_udstockcredis">创建人姓名:</string>
+    <string name="udstock_createdate">创建日期:</string>
+    <string name="udstockline">物资列表</string>
+    <string name="udstockline_sn">序号:</string>
+    <string name="udstockline_itemnum">物资编码:</string>
+    <string name="udstockline_udstocklineitedes">物资名称:</string>
+    <string name="udstockline_udstocklineiteiss">发放单位:</string>
+    <string name="udstockline_quantity1">账存数量:</string>
+    <string name="udstockline_quantity2">实际数量:</string>
+    <string name="udstockline_difference">差异数量:</string>
+    <string name="udstockline_reason">差异原因:</string>
+
+    <string name="po">入库管理</string>
+    <string name="invuse_issue">出库管理</string>
+    <string name="invuse_transfer">物料调拨</string>
+    <string name="invuse_item">物资台帐</string>
 
 
     <!--工作申请-->
@@ -277,4 +304,17 @@
     <string name="work_commit">图片上传</string>
     <string name="attachment_details">图片查看</string>
 
+    <!--物资台帐-->
+    <string name="item_itemnum">物资编码:</string>
+    <string name="item_description">物资名称:</string>
+    <string name="item_in19">规格型号:</string>
+    <string name="item_in20">备注:</string>
+    <string name="item_in26">物资大类:</string>
+    <string name="item_in27">物资小类:</string>
+    <string name="item_rotating">固定资产？</string>
+    <string name="item_inspectionrequired">接收时检查？</string>
+    <string name="item_status">状态:</string>
+    <string name="item_lottype">批次类型:</string>
+    <string name="item_orderunit">订购单位:</string>
+    <string name="item_inventory">库房信息</string>
 </resources>

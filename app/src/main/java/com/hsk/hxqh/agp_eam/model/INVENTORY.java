@@ -16,6 +16,7 @@ public class INVENTORY implements Serializable {
     public String ISSUEUNIT;//发放单位
     public String CURBALTOTAL;//当前余量
     public String AVBLBALANCE;//可用量
+    public String BINNUM;//缺省货柜
 
     public String getITEMNUM() {
         return ITEMNUM;
@@ -79,5 +80,13 @@ public class INVENTORY implements Serializable {
 
     public void setAVBLBALANCE(String AVBLBALANCE) {
         this.AVBLBALANCE = AVBLBALANCE;
+    }
+
+    public String getBINNUM() {
+        return BINNUM;
+    }
+
+    public void setBINNUM(String BINNUM) {
+        this.BINNUM = BINNUM;
     }
 }

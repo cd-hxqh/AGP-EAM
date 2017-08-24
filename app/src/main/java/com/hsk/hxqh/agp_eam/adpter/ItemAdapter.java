@@ -5,8 +5,7 @@ import android.content.Context;
 import android.support.v7.widget.CardView;
 
 import com.hsk.hxqh.agp_eam.R;
-import com.hsk.hxqh.agp_eam.model.ASSET;
-import com.hsk.hxqh.agp_eam.model.INVENTORY;
+import com.hsk.hxqh.agp_eam.model.ITEM;
 import com.hsk.hxqh.agp_eam.ui.widget.BaseViewHolder;
 
 import java.util.List;
@@ -15,9 +14,9 @@ import java.util.List;
 /**
  * Created by apple on 15/10/26
  */
-public class InventoryAdapter extends BaseQuickAdapter<INVENTORY> {
+public class ItemAdapter extends BaseQuickAdapter<ITEM> {
     private int position;
-    public InventoryAdapter(Context context, int layoutResId, List data) {
+    public ItemAdapter(Context context, int layoutResId, List data) {
         super(context, layoutResId, data);
     }
 
@@ -30,12 +29,13 @@ public class InventoryAdapter extends BaseQuickAdapter<INVENTORY> {
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, INVENTORY item) {
+    protected void convert(BaseViewHolder helper, ITEM item) {
         CardView cardView = helper.getView(R.id.card_container);
         helper.setText(R.id.item_num_text, item.getITEMNUM());
-        helper.setText(R.id.item_desc_text, item.getITEMNUM_DEC());
-        helper.setText(R.id.item_location_text, item.getLOCATION());
-        helper.setText(R.id.item_curbaltotal_text, item.getCURBALTOTAL());
+        helper.setText(R.id.item_desc_text, item.getDESCRIPTION());
+        helper.setText(R.id.item_lottype_text, item.getLOTTYPE());
+        helper.setText(R.id.item_in19_text, item.getIN19());
+//        helper.setText(R.id.item_udmodule_text, item.getUDMODULE());
 
         switch (helper.getPosition()%5){
             case 0:

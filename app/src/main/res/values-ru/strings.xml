@@ -216,6 +216,7 @@
     <string name="inventory_issueunit">Выдача единица:</string>
     <string name="inventory_curbaltotal">В запас:</string>
     <string name="inventory_avblbalance">Может дозировку:</string>
+    <string name="inventory_binnum">Ящик по умолчанию :</string>
 
     <string name="invbalances">Запас запас</string>
     <string name="invbalances_binnum">контейнерный:</string>
@@ -226,6 +227,31 @@
     <string name="invbalances_physcntdate">Фактически инвентаризация дата:</string>
     <string name="invbalances_reconciled">на?</string>
 
+    <string name="udstock">Инвентаризацию запасов</string>
+    <string name="udstock_stocknum">Номер склада</string>
+    <string name="udstock_description">Описание</string>
+    <string name="udstock_storeroom">Номер склад</string>
+    <string name="udstock_udstockstodes">Склад</string>
+    <string name="udstock_invowner">Номер зав.склада</string>
+    <string name="udstock_udstockinvdis">Зав.склада</string>
+    <string name="udstock_remark">Примечание</string>
+    <string name="udstock_status">Статус</string>
+    <string name="udstock_udstockcredis">Создано</string>
+    <string name="udstock_createdate">Дата создания</string>
+    <string name="udstockline">Список ТМЦ</string>
+    <string name="udstockline_sn">Номер строки:</string>
+    <string name="udstockline_itemnum">ТМЦ:</string>
+    <string name="udstockline_udstocklineitedes">ТМЦ :</string>
+    <string name="udstockline_udstocklineiteiss">Единица заказа:</string>
+    <string name="udstockline_quantity1">Исходное количество:</string>
+    <string name="udstockline_quantity2">фактическое количество:</string>
+    <string name="udstockline_difference">Разница:</string>
+    <string name="udstockline_reason">причина различия:</string>
+
+    <string name="po">На склад управления</string>
+    <string name="invuse_issue">Покупная управления</string>
+    <string name="invuse_transfer">Мат фондовые</string>
+    <string name="invuse_item">Справочник кодов ТМЦ</string>
 
     <!--工作申请-->
     <string name="udfaultreport_text">Порядковый номер акта доклада</string>
@@ -276,4 +302,18 @@
     <string name="check_phtot">Выбор картинки</string>
     <string name="work_commit">Фотографии загружать</string>
     <string name="attachment_details">Просмотреть фотографии</string>
+
+    <!--物资台帐-->
+    <string name="item_itemnum">Материал:</string>
+    <string name="item_description">Материал:</string>
+    <string name="item_in19">Спецификация:</string>
+    <string name="item_in20">Примечание:</string>
+    <string name="item_in26">Первый класс:</string>
+    <string name="item_in27">Второй класс:</string>
+    <string name="item_rotating">Основные средства</string>
+    <string name="item_inspectionrequired">Инспектировать при получении</string>
+    <string name="item_status">Статус:</string>
+    <string name="item_lottype">Тип лота:</string>
+    <string name="item_orderunit">Единица заказа:</string>
+    <string name="item_inventory">запас</string>
 </resources>

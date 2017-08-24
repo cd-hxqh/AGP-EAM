@@ -1,76 +1,30 @@
 package com.hsk.hxqh.agp_eam.ui.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ImageSpan;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
 import com.hsk.hxqh.agp_eam.R;
-import com.hsk.hxqh.agp_eam.adpter.BaseQuickAdapter;
-import com.hsk.hxqh.agp_eam.adpter.InventoryAdapter;
-import com.hsk.hxqh.agp_eam.api.HttpManager;
-import com.hsk.hxqh.agp_eam.api.HttpRequestHandler;
-import com.hsk.hxqh.agp_eam.api.JsonUtils;
-import com.hsk.hxqh.agp_eam.bean.Results;
-import com.hsk.hxqh.agp_eam.model.INVENTORY;
-import com.hsk.hxqh.agp_eam.ui.activity.InventoryDetailsActivity;
-import com.hsk.hxqh.agp_eam.ui.widget.SwipeRefreshLayout;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.hsk.hxqh.agp_eam.ui.activity.InventoryListActivity;
+import com.hsk.hxqh.agp_eam.ui.activity.ItemListActivity;
+import com.hsk.hxqh.agp_eam.ui.activity.UdstockListActivity;
 
 /**
  * Created by Administrator on 2017/2/27.
  * 库存管理
  */
 
-public class InventoryFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, SwipeRefreshLayout.OnLoadListener{
+public class InventoryFragment extends BaseFragment {
     private static final String TAG = "InventoryFragment";
-    LinearLayoutManager layoutManager;
-    /**
-     * RecyclerView*
-     */
-    public RecyclerView recyclerView;
-    /**
-     * 暂无数据*
-     */
-    private LinearLayout nodatalayout;
-    /**
-     * 界面刷新*
-     */
-    private SwipeRefreshLayout refresh_layout = null;
-    /**
-     * 适配器*
-     */
-    private InventoryAdapter assetAdapter;
-    /**
-     * 编辑框*
-     */
-    private EditText search;
-    /**
-     * 查询条件*
-     */
-    private String searchText = "";
-    private int page = 1;
-
-
-    ArrayList<INVENTORY> items = new ArrayList<INVENTORY>();
+    private RelativeLayout udstockLayout;//库存盘点
+    private RelativeLayout poLayout;//入库管理
+    private RelativeLayout issueLayout;//出库管理
+    private RelativeLayout transferLayout;//物料调拨
+    private RelativeLayout inventoryLayout;//库存查询
+    private RelativeLayout itemLayout;//物资台帐
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +33,7 @@ public class InventoryFragment extends BaseFragment implements SwipeRefreshLayou
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list, container,
+        View view = inflater.inflate(R.layout.fragment_inventory, container,
                 false);
 
         findByIdView(view);
@@ -91,11 +45,12 @@ public class InventoryFragment extends BaseFragment implements SwipeRefreshLayou
      * 初始化界面组件*
      */
     private void findByIdView(View view) {
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView_id);
-        refresh_layout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
-        nodatalayout = (LinearLayout) view.findViewById(R.id.have_not_data_id);
-        search = (EditText) view.findViewById(R.id.search_edit);
+        udstockLayout = (RelativeLayout) view.findViewById(R.id.udstock_layout);
+        poLayout = (RelativeLayout) view.findViewById(R.id.po_layout);
+        issueLayout = (RelativeLayout) view.findViewById(R.id.invuse_issue_layout);
+        transferLayout = (RelativeLayout) view.findViewById(R.id.invuse_transfer_layout);
+        inventoryLayout = (RelativeLayout) view.findViewById(R.id.inventory_layout);
+        itemLayout = (RelativeLayout) view.findViewById(R.id.item_layout);
     }
 
 
@@ -103,147 +58,64 @@ public class InventoryFragment extends BaseFragment implements SwipeRefreshLayou
      * 设置事件监听*
      */
     private void initView() {
-        setSearchEdit();
-
-        layoutManager = new LinearLayoutManager(getActivity());
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        layoutManager.scrollToPosition(0);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        refresh_layout.setColor(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-        refresh_layout.setRefreshing(true);
-
-        refresh_layout.setOnRefreshListener(this);
-        refresh_layout.setOnLoadListener(this);
-
-
+        udstockLayout.setOnClickListener(udstockLayoutOnClickListener);
+        poLayout.setOnClickListener(poLayoutOnClickListener);
+        issueLayout.setOnClickListener(issueLayoutOnClickListener);
+        transferLayout.setOnClickListener(transferLayoutOnClickListener);
+        inventoryLayout.setOnClickListener(inventoryLayoutOnClickListener);
+        itemLayout.setOnClickListener(itemLayoutOnClickListener);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        refresh_layout.setRefreshing(true);
-        initAdapter(new ArrayList<INVENTORY>());
-        items = new ArrayList<>();
-        getData(searchText);
-    }
+    private View.OnClickListener udstockLayoutOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getActivity(), UdstockListActivity.class);
+//            intent.putExtra("type","CM");
+            startActivity(intent);
+        }
+    };
 
-    @Override
-    public void onLoad() {
-        page++;
-        getData(searchText);
-    }
+    private View.OnClickListener poLayoutOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+//            Intent intent = new Intent(getActivity(), WorkOederListActivity.class);
+//            intent.putExtra("type","PM");
+//            startActivity(intent);
+        }
+    };
 
-    @Override
-    public void onRefresh() {
-        page = 1;
-        getData(searchText);
-    }
+    private View.OnClickListener issueLayoutOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+//            Intent intent = new Intent(getActivity(), WorkOederListActivity.class);
+//            intent.putExtra("type","PM");
+//            startActivity(intent);
+        }
+    };
 
+    private View.OnClickListener transferLayoutOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+//            Intent intent = new Intent(getActivity(), WorkOederListActivity.class);
+//            intent.putExtra("type","PM");
+//            startActivity(intent);
+        }
+    };
 
-    private void setSearchEdit() {
-        SpannableString msp = new SpannableString(getString(R.string.search_text));
-        Drawable drawable = getResources().getDrawable(R.drawable.ic_search);
-        msp.setSpan(new ImageSpan(drawable), 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        search.setHint(msp);
-        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+    private View.OnClickListener inventoryLayoutOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getActivity(), InventoryListActivity.class);
+            startActivity(intent);
+        }
+    };
 
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    // 先隐藏键盘
-                    ((InputMethodManager) search.getContext().getSystemService(Context.INPUT_METHOD_SERVICE))
-                            .hideSoftInputFromWindow(
-                                    getActivity().getCurrentFocus()
-                                            .getWindowToken(),
-                                    InputMethodManager.HIDE_NOT_ALWAYS);
-                    searchText = search.getText().toString();
-                    assetAdapter.removeAll(items);
-                    items = new ArrayList<INVENTORY>();
-                    nodatalayout.setVisibility(View.GONE);
-                    refresh_layout.setRefreshing(true);
-                    page = 1;
-                    getData(searchText);
-                    return true;
-                }
-                return false;
-            }
-        });
-    }
-
-
-    /**
-     * 获取数据*
-     */
-    private void getData(String search) {
-        HttpManager.getDataPagingInfo(getActivity(), HttpManager.getInventoryUrl(search, page, 20), new HttpRequestHandler<Results>() {
-            @Override
-            public void onSuccess(Results results) {
-                Log.i(TAG, "data=" + results);
-            }
-
-            @Override
-            public void onSuccess(Results results, int totalPages, int currentPage) {
-                ArrayList<INVENTORY> item = JsonUtils.parsingINVENTORY(getActivity(), results.getResultlist());
-                refresh_layout.setRefreshing(false);
-                refresh_layout.setLoading(false);
-                if (item == null || item.isEmpty()) {
-                    nodatalayout.setVisibility(View.VISIBLE);
-                } else {
-
-                    if (item != null || item.size() != 0) {
-                        if (page == 1) {
-                            items = new ArrayList<INVENTORY>();
-                            initAdapter(items);
-                        }
-                        for (int i = 0; i < item.size(); i++) {
-                            items.add(item.get(i));
-                        }
-                        addData(item);
-                    }
-                    nodatalayout.setVisibility(View.GONE);
-
-                    initAdapter(items);
-                }
-            }
-
-            @Override
-            public void onFailure(String error) {
-                refresh_layout.setRefreshing(false);
-                nodatalayout.setVisibility(View.VISIBLE);
-            }
-        });
-
-    }
-
-
-    /**
-     * 获取数据*
-     */
-    private void initAdapter(final List<INVENTORY> list) {
-        assetAdapter = new InventoryAdapter(getActivity(), R.layout.list_item_inventory, list);
-        recyclerView.setAdapter(assetAdapter);
-        assetAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Intent intent = new Intent(getActivity(), InventoryDetailsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("inventory", items.get(position));
-                intent.putExtras(bundle);
-                startActivityForResult(intent, 0);
-            }
-        });
-    }
-
-    /**
-     * 添加数据*
-     */
-    private void addData(final List<INVENTORY> list) {
-        assetAdapter.addData(list);
-    }
-
+    private View.OnClickListener itemLayoutOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getActivity(), ItemListActivity.class);
+//            intent.putExtra("type","PM");
+            startActivity(intent);
+        }
+    };
 }
